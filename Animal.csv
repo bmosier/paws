@@ -1,6 +1,0 @@
-animal_id,shelter_id,animal_name,most_recent_intake, animal_DOB,animal_species,animal_breed,animal_sex,animal_is_sterilized,animal_description
-352,5,Frankie,06/08/18,06/08/15,Dog,Pitbull,M,TRUE,"100 lb brown and white pitbull, calm, fun"
-110,3,snek,07/25/20,06/10/20,Cat,Main Coon,F,FALSE,"15 lbs brown and black, tempermental, cuddly"
-225,3,Shirley,10/22/20,1/15/12,Dog,German Shepard,F,TRUE,"75 lbs, playful, working dog, food aggressive"
-523,5,Sylvester,10/21/20,5/29/14,Cat,Tuxedo,M,TRUE,"12 lbs, energetic"
-389,3,Garfield,9/5/20,8/8/12,Cat,Persian,M,TRUE,"20 lbs, mellow"
