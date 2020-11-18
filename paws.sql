@@ -1,19 +1,21 @@
-DROP TABLE IF EXISTS staffmember;
-DROP TABLE IF EXISTS shelter;
-DROP TABLE IF EXISTS animal;
-DROP TABLE IF EXISTS customer;
-DROP TABLE IF EXISTS fosterhome;
-DROP TABLE IF EXISTS volunteer;
-DROP TABLE IF EXISTS adoption;
-DROP TABLE IF EXISTS intake;
+-- table drops
 DROP TABLE IF EXISTS fosterhome_animal;
 DROP TABLE IF EXISTS volunteer_shelter;
+DROP TABLE IF EXISTS adoption;
+DROP TABLE IF EXISTS intake;
+DROP TABLE IF EXISTS customer;
+DROP TABLE IF EXISTS animal;
+DROP TABLE IF EXISTS fosterhome;
+DROP TABLE IF EXISTS volunteer;
 DROP TABLE IF EXISTS staffmember_shelter;
+DROP TABLE IF EXISTS shelter;
+DROP TABLE IF EXISTS staffmember;
+
+-- table definitions
 -- animal
 CREATE TABLE animal (
     animal_ID INT(7) NOT NULL,
     name VARCHAR(50) NOT NULL,
-    intake_ID INT(7) NOT NULL,
     animal_DOB DATETIME NOT NULL,
     animal_species VARCHAR(50) NOT NULL,
     animal_breed VARCHAR(50) NOT NULL,
@@ -23,11 +25,10 @@ CREATE TABLE animal (
     last_foster_home INT(7),
     shelter_ID INT,
     wellness_check BOOL,
-    is_sheltered BOOL,
-    PRIMARY KEY (animal_ID),
-    FOREIGN KEY (last_foster_home) REFERENCES fosterhome (foster_ID),
-    FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID)
+    is_fostered BOOL,
+    PRIMARY KEY (animal_ID)
 );
+
 -- adoption
 CREATE TABLE adoption (
     adoption_ID INT(7) NOT NULL,
@@ -35,22 +36,17 @@ CREATE TABLE adoption (
     customer_ID INT(7) NOT NULL,
     staff_ID INT(7) NOT NULL,
     adoption_date DATETIME NOT NULL,
-    PRIMARY KEY (adoption_ID),
-    FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID),
-    FOREIGN KEY (customer_ID) REFERENCES customer (customer_ID),
-    FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID)
+    PRIMARY KEY (adoption_ID)
 );
+
 -- fosterhome_animal
 CREATE TABLE fosterhome_animal (
     foster_animal_ID INT(7) NOT NULL,
     animal_ID INT(7) NOT NULL,
     foster_ID INT(7) NOT NULL,
     foster_date DATETIME NOT NULL,
-    PRIMARY KEY (foster_animal_ID),
-    FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID),
-    FOREIGN KEY (foster_ID) REFERENCES fosterhome (foster_ID)
+    PRIMARY KEY (foster_animal_ID)
 );
-
 
 -- customer
 CREATE TABLE customer (
@@ -79,8 +75,7 @@ CREATE TABLE fosterhome (
     foster_state CHAR(2) NOT NULL,
     foster_zip_code INT(5) NOT NULL,
     max_animals INT(10) NOT NULL,
-    PRIMARY KEY (foster_ID),
-    FOREIGN KEY (volunteer_ID) REFERENCES volunteer (volunteer_ID)
+    PRIMARY KEY (foster_ID)
 );
 
 -- volunteer
@@ -102,25 +97,20 @@ CREATE TABLE volunteer (
 CREATE TABLE volunteer_shelter (
     volunteer_ID INT(7) NOT NULL,
     shelter_ID INT(7) NOT NULL,
-    PRIMARY KEY (volunteer_ID, shelter_ID),
-    FOREIGN KEY (volunteer_ID) REFERENCES volunteer (volunteer_ID),
-    FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID)
+    PRIMARY KEY (volunteer_ID, shelter_ID)
 );
 
 -- staffmember_shelter
 CREATE TABLE staffmember_shelter (
-    staffmember_ID INT NOT NULL,
+    staff_ID INT NOT NULL,
     shelter_ID INT NOT NULL,
-    PRIMARY KEY (staffmember_ID, shelter_ID),
-    FOREIGN KEY (staffmember_ID) REFERENCES staffmember (staffmember_ID),
-    FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID)
+    PRIMARY KEY (staff_ID, shelter_ID)
 );
-
 
 -- staffmember
 CREATE TABLE staffmember (
-    staffmember_ID INT NOT NULL,
-    PRIMARY KEY (staffmember_ID),
+    staff_ID INT NOT NULL,
+    PRIMARY KEY (staff_ID),
     staff_first_name VARCHAR(50) NOT NULL, 
     staff_last_name VARCHAR(50) NOT NULL,
     staff_phone INT NOT NULL, 
@@ -151,61 +141,60 @@ CREATE TABLE intake (
     staff_ID INT NOT NULL,
     intake_date DATETIME NOT NULL,
    --  intake_type VARCHAR -- surrendered, stray, baby!
-    PRIMARY KEY (intake_ID),
-    FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID),
-    FOREIGN KEY (customer_ID) REFERENCES customer (customer_ID),
-    FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID)
+    PRIMARY KEY (intake_ID)
 );
 
+-- Constraints
+-- animal
+ALTER TABLE animal ADD CONSTRAINT FK_animal_shelter_ID
+FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID);
 
+-- adoption
+ALTER TABLE adoption ADD CONSTRAINT FK_adoption_animal_ID
+FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID);
+ALTER TABLE adoption ADD CONSTRAINT FK_adoption_customer_ID
+FOREIGN KEY (customer_ID) REFERENCES customer (customer_ID);
+ALTER TABLE adoption ADD CONSTRAINT FK_adoption_staff_ID
+FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID);
 
+-- fosterhome_animal
+ALTER TABLE fosterhome_animal ADD CONSTRAINT FK_fosterhome_animal_animal_ID
+FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID);
+ALTER TABLE fosterhome_animal ADD CONSTRAINT FK_fosterhome_animal_foster_ID
+FOREIGN KEY (foster_ID) REFERENCES fosterhome (foster_ID);
 
+-- customer
+-- N/A
 
--- Constraints:
---animal
-PRIMARY KEY (animal_ID),
-FOREIGN KEY (intake_ID) REFERENCES intake (intake_ID),
-FOREIGN KEY (last_foster_home) REFERENCES fosterhome (foster_ID),
-FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID)
+-- fosterhome
+ALTER TABLE fosterhome ADD CONSTRAINT FK_fosterhome_volunteer_ID
+FOREIGN KEY (volunteer_ID) REFERENCES volunteer (volunteer_ID);
 
---customer
-    PRIMARY KEY (customer_ID)
+-- volunteer
+-- N/A
 
---volunteer
-    PRIMARY KEY (volunteer_ID)
+-- volunteer_shelter
+ALTER TABLE volunteer_shelter ADD CONSTRAINT FK_volunteer_shelter_volunteer_ID
+FOREIGN KEY (volunteer_ID) REFERENCES volunteer (volunteer_ID);
+ALTER TABLE volunteer_shelter ADD CONSTRAINT FK_volunteer_shelter_shelter_ID
+FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID);
 
---staff member
-    PRIMARY KEY (staffmember_ID)
+-- staffmember_shelter
+ALTER TABLE staffmember_shelter ADD CONSTRAINT FK_staffmember_shelter_staff_ID
+FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID);
+ALTER TABLE staffmember_shelter ADD CONSTRAINT FK_staffmember_shelter_shelter_ID
+FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID);
 
---shelter
-    PRIMARY KEY (shelter_ID)
+-- staffmember
+-- N/A
 
---adoption
-PRIMARY KEY (adoption_ID),
-FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID),
-FOREIGN KEY (customer_ID) REFERENCES customer (customer_ID),
-FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID)
+-- shelter
+-- N/A
 
---intake
-PRIMARY KEY (intake_ID),
-        FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID),
-        FOREIGN KEY (customer_ID) REFERENCES customer (customer_ID)
-       FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID)
-
---fosterhome_animal
-PRIMARY KEY (foster_animal_ID),
-FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID)
-        FOREIGN KEY (foster_ID) REFERENCES fosterhome (foster_ID)
-
---fosterhome
-    PRIMARY KEY (foster_ID),
-    FOREIGN KEY (volunteer_ID) REFERENCES volunteer (volunteer_ID)
-
---volunteer_shelter
-    FOREIGN KEY (volunteer_ID) REFERENCES volunteer (volunteer_ID)
-        FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID)
-
---staffmember_shelter
-PRIMARY KEY (staffmember_ID, shelter_ID),
-        FOREIGN KEY (staffmember_ID) REFERENCES staffmember   (staffmember_ID),
-        FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID)
+-- intake
+ALTER TABLE intake ADD CONSTRAINT FK_intake_animal_ID
+FOREIGN KEY (animal_ID) REFERENCES animal (animal_ID);
+ALTER TABLE intake ADD CONSTRAINT FK_intake_customer_ID
+FOREIGN KEY (customer_ID) REFERENCES customer (customer_ID);
+ALTER TABLE intake ADD CONSTRAINT FK_intake_staff_ID
+FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID);
