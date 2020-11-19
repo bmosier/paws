@@ -199,5 +199,5 @@ ALTER TABLE intake ADD CONSTRAINT FK_intake_customer_ID
 FOREIGN KEY (customer_ID) REFERENCES customer (customer_ID);
 ALTER TABLE intake ADD CONSTRAINT FK_intake_staff_ID
 FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID);
-ALTER TABLE intake ADD CONSTRAINT FK_intake_sshelter_ID --added shelter ID constraint
+ALTER TABLE intake ADD CONSTRAINT FK_intake_shelter_ID --added shelter ID constraint
 FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID);
