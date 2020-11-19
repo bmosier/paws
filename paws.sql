@@ -138,7 +138,7 @@ CREATE TABLE shelter (
 CREATE TABLE intake (
     intake_ID INT NOT NULL,
     animal_ID INT NOT NULL,
-    customer_ID INT, -- made null to allow other intake
+    customer_ID INT NOT NULL, 
     staff_ID INT NOT NULL,
     shelter_ID INT NOT NULL, -- should we add fosterhome_ID as a FK as well?
     intake_date DATETIME NOT NULL,
