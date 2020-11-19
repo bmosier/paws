@@ -1,5 +1,3 @@
-select * from fosterhome
-
 INSERT INTO fosterhome (foster_ID, volunteer_ID, foster_phone, foster_street, foster_city, foster_state, foster_zip_code, max_animals)
 VALUES (100, 34, 8675309, '123 Circle St.', 'Medford', 'Oregon', 97504, 2);
 
@@ -29,3 +27,5 @@ VALUES (900, 42, 8675318, '4568 NW N St.', 'Ashland', 'Oregon', 97502, 6);
 
 INSERT INTO fosterhome (foster_ID, volunteer_ID, foster_phone, foster_street, foster_city, foster_state, foster_zip_code, max_animals)
 VALUES (999, 43, 8675319, '7777 Seven St.', 'Ashland', 'Oregon', 97502, 6);
+
+select * from fosterhome
