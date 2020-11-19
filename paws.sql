@@ -22,7 +22,6 @@ CREATE TABLE animal (
     animal_sex ENUM("M", "F") NOT NULL,
     animal_is_sterilized BOOL NOT NULL,
     animal_description MEDIUMTEXT NOT NULL,
-    last_foster_home INT(7),
     shelter_ID INT,
     wellness_check BOOL,
     is_fostered BOOL,
