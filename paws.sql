@@ -25,6 +25,7 @@ CREATE TABLE animal (
     shelter_ID INT,
     wellness_check BOOL,
     is_fostered BOOL,
+    is_sheltered BOOL,
     PRIMARY KEY (animal_ID)
 );
 
