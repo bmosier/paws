@@ -53,7 +53,6 @@ CREATE TABLE customer (
     customer_ID INT NOT NULL,
     customer_first_name VARCHAR(50) NOT NULL,
     customer_last_name VARCHAR(50) NOT NULL,
-    customer_phone_ext INT(4) NOT NULL,
     customer_phone INT(10) NOT NULL,
     customer_street VARCHAR(50) NOT NULL,
     customer_city VARCHAR(50) NOT NULL,
@@ -68,7 +67,6 @@ CREATE TABLE customer (
 CREATE TABLE fosterhome (
     foster_ID INT NOT NULL,
     volunteer_ID INT NOT NULL,
-    fosterhome_phone_ext INT(4) NOT NULL,
     foster_phone INT(10) NOT NULL,
     foster_street VARCHAR(50) NOT NULL,
     foster_city VARCHAR(50) NOT NULL,
@@ -83,7 +81,6 @@ CREATE TABLE volunteer (
     volunteer_ID INT(7) NOT NULL,
     volunteer_first_name VARCHAR(50) NOT NULL,
     volunteer_last_name VARCHAR(50) NOT NULL,
-    volunteer_phone_ext INT(4) NOT NULL,
     volunteer_phone INT(10) NOT NULL,
     volunteer_street VARCHAR(50) NOT NULL,
     volunteer_city VARCHAR(50) NOT NULL,
