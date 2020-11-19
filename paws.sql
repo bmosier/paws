@@ -113,6 +113,7 @@ CREATE TABLE staffmember (
     PRIMARY KEY (staff_ID),
     staff_first_name VARCHAR(50) NOT NULL, 
     staff_last_name VARCHAR(50) NOT NULL,
+    staff_phone_ext INT, -- added phone ext only for staff 
     staff_phone INT NOT NULL, 
     staff_street VARCHAR(50) NOT NULL, 
     staff_city VARCHAR(50) NOT NULL, 
@@ -137,11 +138,11 @@ CREATE TABLE shelter (
 CREATE TABLE intake (
     intake_ID INT NOT NULL,
     animal_ID INT NOT NULL,
-    customer_ID INT NOT NULL, -- maybe allow null? //Sam (I also think it should allow null bc the intake type)
+    customer_ID INT, -- made null to allow other intake
     staff_ID INT NOT NULL,
-    shelter_ID INT NOT NULL, --should we add fosterhome_ID as a FK as well?
+    shelter_ID INT NOT NULL, -- should we add fosterhome_ID as a FK as well?
     intake_date DATETIME NOT NULL,
-    intake_type VARCHAR(255) NOT NULL, --added type of intake 
+    intake_type VARCHAR(255) NOT NULL, -- added type of intake 
     PRIMARY KEY (intake_ID)
 );
 
