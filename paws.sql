@@ -137,10 +137,11 @@ CREATE TABLE shelter (
 CREATE TABLE intake (
     intake_ID INT NOT NULL,
     animal_ID INT NOT NULL,
-    customer_ID INT NOT NULL, -- maybe allow null?
+    customer_ID INT NOT NULL, -- maybe allow null? //Sam (I also think it should allow null bc the intake type)
     staff_ID INT NOT NULL,
+    shelter_ID INT NOT NULL, --should we add fosterhome_ID as a FK as well?
     intake_date DATETIME NOT NULL,
-   --  intake_type VARCHAR -- surrendered, stray, baby!
+    intake_type VARCHAR(255) NOT NULL, --added type of intake 
     PRIMARY KEY (intake_ID)
 );
 
@@ -198,3 +199,5 @@ ALTER TABLE intake ADD CONSTRAINT FK_intake_customer_ID
 FOREIGN KEY (customer_ID) REFERENCES customer (customer_ID);
 ALTER TABLE intake ADD CONSTRAINT FK_intake_staff_ID
 FOREIGN KEY (staff_ID) REFERENCES staffmember (staff_ID);
+ALTER TABLE intake ADD CONSTRAINT FK_intake_sshelter_ID --added shelter ID constraint
+FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID);
