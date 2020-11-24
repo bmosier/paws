@@ -114,7 +114,7 @@ CREATE TABLE staffmember (
     staff_phone BIGINT(10) NOT NULL, 
     staff_street VARCHAR(50) NOT NULL, 
     staff_city VARCHAR(50) NOT NULL, 
-    staff_state VARCHAR(50) NOT NULL,
+    staff_state CHAR(2) NOT NULL,
     staff_zipcode INT NOT NULL, 
     is_admin BOOL NOT NULL
 );
@@ -126,7 +126,7 @@ CREATE TABLE shelter (
     shelter_phone BIGINT(10) NOT NULL,
     shelter_street VARCHAR(50) NOT NULL,
     shelter_city VARCHAR(50) NOT NULL,
-    shelter_state VARCHAR(50) NOT NULL,
+    shelter_state CHAR(2) NOT NULL,
     shelter_zip_code INT NOT NULL,
     max_animals INT NOT NULL,
     PRIMARY KEY (shelter_ID)
