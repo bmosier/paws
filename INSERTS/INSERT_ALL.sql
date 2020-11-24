@@ -187,7 +187,7 @@ INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, a
 VALUES (108, 'Kicker', STR_TO_DATE('06-17-2020', '%m-%d-%Y'), 'Cat', 'Maine Coon', 'F', TRUE, '10 lbs brown and black, aggressive', 9, TRUE, FALSE, TRUE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
-VALUES (109, 'Ron', STR_TO_DATE('06-18-2020', '%m-%d-%Y'), 'Lizard', 'Iguana', 'M', TRUE, '2lbs green and dark green, excited and fun', 10, TRUE, FALSE, TRUE);
+VALUES (109, 'Ron', STR_TO_DATE('06-18-2020', '%m-%d-%Y'), 'Lizard', 'Iguana', 'M', TRUE, '2lbs green and dark green, excited and fun', 10, TRUE, TRUE, FALSE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
 VALUES (90, 'Larry', STR_TO_DATE('05-15-2006', '%m-%d-%Y'), 'Lizard', 'Salamander', 'M', TRUE, '.5 OZ green', 3, TRUE, FALSE, TRUE);
