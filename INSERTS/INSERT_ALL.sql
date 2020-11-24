@@ -395,3 +395,6 @@ VALUES(144, 102, 300, STR_TO_DATE('10-22-2020', '%m-%d-%Y'));
 
 INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
 VALUES(155, 103, 400, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
+
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(166, 109, 700, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
