@@ -21,9 +21,31 @@ $sql = new mysqli($hostname, $username, $password, $schema);
 if ($sql->connect_errno) {
 	echo 'Connection failed: ' . $sql->connect_errno;
 } else {
-	echo 'Connected successfully.';
+	$result = $sql->query('SELECT * FROM v_volunteer_contact;');
+	
+	echo '<table border="1" align="center">';
+	echo '<tr>';
+	echo '<th>Volunteer Id</th>';
+	echo '<th>Volunteer Last Name</th>';
+	echo '<th>Volunteer First Name</th>';
+	echo '<th>Volunteer Phone Number</th>';
+	echo '<th>Volunteer Email</th>';
+	echo '</tr>';
+	
+	while ($row = $result->fetch_assoc()) {
+		echo '<tr>';
+		echo '<td>' . $row['volunteer_id'] . '</td>';
+		echo '<td>' . $row['volunteer_last_name'] . '</td>';
+		echo '<td>' . $row['volunteer_first_name'] . '</td>';
+		echo '<td>' . $row['volunteer_phone'] . '</td>';
+		echo '<td>' . $row['volunteer_email'] . '</td>';
+		echo '</tr>';
+	}
+	
+	echo '</table>';
+	$result->free_result();
+	$sql->close();
 }
-$sql->close();
 ?>
 	</body>
 </html>
