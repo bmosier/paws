@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		</title>Current Month Adoption Count</title>
+		<title>Current Month Adoption Count</title>
 	</head>
 	<body>
 	</body>

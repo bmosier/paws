@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		</title>Fosterhome Animal Insert Validation</title>
+		<title>Fosterhome Animal Insert Validation</title>
 	</head>
 	<body>
 	</body>
