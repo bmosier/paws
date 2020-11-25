@@ -12,5 +12,18 @@
 		<p>text here</p>
 		<h4>Expected Execution</h4>
 		<p>text here</p>
+<?php
+require_once '../dbconfig-paws.php';
+error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
+ini_set('display_errors', '1');
+
+$sql = new mysqli($hostname, $username, $password, $schema);
+if ($sql->connect_errno) {
+	echo 'Connection failed: ' . $sql->connect_errno;
+} else {
+	echo 'Connected successfully.';
+}
+$sql->close();
+?>
 	</body>
 </html>
