@@ -6,12 +6,9 @@
 	<body>
 		<h2>Volunteer Contact Information (View)</h2>
 		<h4>Author: Denis Roman</h4>
-		<h4>Description</h4>
-		<p>text here</p>
-		<h4>Justification</h4>
-		<p>text here</p>
-		<h4>Expected Execution</h4>
-		<p>text here</p>
+		<p><b>Description:</b> This page allows you to view the contact information of all volunteers.</p>
+		<p><b>Justification:</b> This page is useful to shelter staff who wish to contact a volunteer and need the contact information.</p>
+		<p><b>Expected Execution:</b> There should be a table with the volunteer IDs, last names, first names, phone numbers, and emails, for all volunteers.</p>
 <?php
 require_once '../dbconfig-paws.php';
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
@@ -25,7 +22,7 @@ if ($sql->connect_errno) {
 	
 	echo '<table border="1" align="center">';
 	echo '<tr>';
-	echo '<th>Volunteer Id</th>';
+	echo '<th>Volunteer ID</th>';
 	echo '<th>Volunteer Last Name</th>';
 	echo '<th>Volunteer First Name</th>';
 	echo '<th>Volunteer Phone Number</th>';
