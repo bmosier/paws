@@ -6,7 +6,7 @@
 	<body>
 		<h2>Customer Contact Report (Procedure)</h2>
 		<h4>Author: Denis Roman</h4>
-		<p><b>Description:</b> This page allows you the phone numbers of customers who had an adoption within the specified date range (inclusive).
+		<p><b>Description:</b> This page allows you to view the phone numbers of customers who had an adoption within the specified date range (inclusive).
 		It also states whether or not the adopted animal has had a wellness check.</p>
 		<p><b>Justification:</b> This page is useful to shelter staff who need to make sure that all newly adopted animals get wellness checks shortly after being adopted.
 		A staff member can input a date range and see which adopted animals haven't gotten wellness checks.</p>
