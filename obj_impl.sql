@@ -31,11 +31,11 @@ SELECT * FROM customer;
 SELECT * FROM animal;
 CALL customer_contact_report(STR_TO_DATE('10-23-2020', '%m-%d-%Y'), STR_TO_DATE('10-26-2020', '%m-%d-%Y'));
 
--- function: current_month_adoption_count - Denis Roman
-DROP FUNCTION IF EXISTS current_month_adoption_count;
+-- function: month_adoption_count - Denis Roman
+DROP FUNCTION IF EXISTS month_adoption_count;
 
 DELIMITER $$
-CREATE FUNCTION current_month_adoption_count(p_date DATETIME)
+CREATE FUNCTION month_adoption_count(p_date DATETIME)
 	RETURNS INT
 	READS SQL DATA
 BEGIN
@@ -49,7 +49,7 @@ DELIMITER ;
 
 SELECT * FROM adoption;
 SELECT count(*) FROM adoption WHERE YEAR(adoption_date) = YEAR(STR_TO_DATE('10-23-2020', '%m-%d-%Y')) AND MONTH(adoption_date) = MONTH(STR_TO_DATE('10-23-2020', '%m-%d-%Y'));
-SELECT current_month_adoption_count(STR_TO_DATE('10-23-2020', '%m-%d-%Y'));
+SELECT month_adoption_count(STR_TO_DATE('10-23-2020', '%m-%d-%Y'));
 
 -- trigger: fosterhome_animal_BEFORE_INSERT - Denis Roman
 DROP TRIGGER IF EXISTS fosterhome_animal_BEFORE_INSERT;
@@ -87,5 +87,4 @@ SELECT * FROM fosterhome_animal;
 -- 
 -- End of object implementations assigned to: Denis Roman
 -- 
-
 
