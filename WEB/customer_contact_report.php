@@ -7,7 +7,7 @@
 		<h2>Customer Contact Report (Procedure)</h2>
 		<h4>Author: Denis Roman</h4>
 		<p><b>Description:</b> This page allows you to view the phone numbers of customers who had an adoption within the specified date range (inclusive).
-		It also states whether or not the adopted animal has had a wellness check.</p>
+		It also states whether or not the adopted animal has had a wellness check. This uses the customer_contact_report procedure.</p>
 		<p><b>Justification:</b> This page is useful to shelter staff who need to make sure that all newly adopted animals get wellness checks shortly after being adopted.
 		A staff member can input a date range and see which adopted animals haven't gotten wellness checks.</p>
 		<p><b>Expected Execution:</b> Upon inputting a date range, animals adopted in that timeframe will be displayed, along with whether or not they had wellness checks, and who the adopting customer is and how to contact them.

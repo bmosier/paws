@@ -7,7 +7,7 @@
 		<h2>Month Adoption Count (Stored Function)</h2>
 		<h4>Author: Denis Roman</h4>
 		<p><b>Description:</b> This page allows you to view how many adoptions occurred in the month
-		of a specified date.</p>
+		of a specified date. This uses the month_adoption_count stored function.</p>
 		<p><b>Justification:</b> Staff members, and perhaps the front-end of a user-accessible website,
 		can use this information to display a statistic of how many animals have been adopted so far this month,
 		as well as in any past month.</p>

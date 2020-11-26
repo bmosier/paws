@@ -6,7 +6,7 @@
 	<body>
 		<h2>Volunteer Contact Information (View)</h2>
 		<h4>Author: Denis Roman</h4>
-		<p><b>Description:</b> This page allows you to view the contact information of all volunteers.</p>
+		<p><b>Description:</b> This page allows you to view the contact information of all volunteers. This uses the v_volunteer_contact view.</p>
 		<p><b>Justification:</b> This page is useful to shelter staff who wish to contact a volunteer and need the contact information.</p>
 		<p><b>Expected Execution:</b> There should be a table with the volunteer IDs, last names, first names, phone numbers, and emails, for all volunteers.</p>
 <?php
