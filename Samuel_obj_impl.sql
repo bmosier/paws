@@ -58,3 +58,50 @@ BEGIN
 RETURN amount;
 END$$
 DELIMITER;
+
+-- trigger: intake_BEFORE_INSERT - Samuel James
+DROP TRIGGER IF EXISTS intake_BEFORE_INSERT;
+
+DELIMITER $$
+CREATE TRIGGER intake_BEFORE_INSERT BEFORE INSERT ON intake FOR EACH ROW
+BEGIN
+    DECLARE shelter_current_count INT DEFAULT 0;
+    DECLARE shelter_max_animals INT DEFAULT 0;
+    SELECT COUNT(*) FROM intake WHERE shelter_ID = NEW.shelter_ID 
+    INTO shelter_current_count;
+    SELECT max_animals FROM shelter 
+    WHERE shelter_ID = NEW.shelter_ID INTO shelter_max_animals;
+    IF shelter_current_count + 1 > shelter_max_animals THEN
+ 	SIGNAL SQLSTATE '75000' SET MESSAGE_TEXT = 'Unable to exceed shelter maximum capacity';
+    END IF;
+END$$
+DELIMITER ;
+
+-- trigger test
+START TRANSACTION;
+SELECT * FROM shelter;
+SELECT * FROM intake;
+							  
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(199, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
+
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(200, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
+
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(201, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
+
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(103, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
+
+SELECT * FROM intake;							  
+							  
+-- WILL GET ERROR HERE (AS EXPECTED):						  
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(555, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
+							 
+SELECT * FROM intake;
+
+-- RUN FOLLOWING THE ERROR:
+ROLLBACK;
+SELECT * FROM intake;
