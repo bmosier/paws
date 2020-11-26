@@ -219,6 +219,21 @@ VALUES (98, 'Barry', STR_TO_DATE('01-15-2007', '%m-%d-%Y'), 'Cat', 'Tabby', 'F',
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
 VALUES (99, 'Carrie', STR_TO_DATE('02-15-2007', '%m-%d-%Y'), 'Cat', 'Siamese', 'M', TRUE, '10 lbs fun and cuddly hairless', 7, TRUE, FALSE, TRUE);
 
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
+VALUES (110, 'Beardy', STR_TO_DATE('01-13-13', '%m-%d-%Y'), 'Cat', 'Tabby', 'M', FALSE, '13 lbs Orange and timid', null, FALSE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
+VALUES (111, 'Grumpy', STR_TO_DATE('02-14-13', '%m-%d-%Y'), 'Cat', 'Tabby', 'M', TRUE, '10 lbs aggressive and territorial black and orange', null, FALSE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
+VALUES (112, 'Lazy', STR_TO_DATE('03-18-13', '%m-%d-%Y'), 'Dog', 'Daschund', 'F', TRUE, 'Small black and brown 15 lbs and fun', null, FALSE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
+VALUES (113, 'Scooby', STR_TO_DATE('04-19-13', '%m-%d-%Y'), 'Dog', 'Great Dane', 'M', TRUE, 'Large 90 lbs, talks really strange, also who knew dogs could talk? RUH-ROH', null, FALSE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
+VALUES (114, 'Shaggy', STR_TO_DATE('05-21-13', '%m-%d-%Y'), 'Dog', 'Puli', 'F', TRUE, '45 lbs looks like a mop, fun and cuddly', null, FALSE, TRUE, FALSE);
+
 
 -- INSERT_customer
 -- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
@@ -256,6 +271,9 @@ VALUES(6010, 'Graham', 'Sherman', 5418881600, '800 NW Q St.', 'Medford', 'OR', 9
 -- INSERT_intake
 -- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(8000, 100, 9050001, 5, 6001, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Animal Control');
+
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(8001, 101, 9050001, 5, 6001, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Baby');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
@@ -282,8 +300,6 @@ VALUES(8008, 108, 9050017, 3, 6008, STR_TO_DATE('10-22-2020', '%m-%d-%Y'), 'Anim
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(8009, 109, 9050017, 5, 6009, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), 'Baby');
 
-INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8010, 109, 9050017, 3, 6010, STR_TO_DATE('09-05-2020', '%m-%d-%Y'), 'Baby');
 -- -------------------------------------Adopted Animals
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(7000, 90, 9050016, 3, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
@@ -315,6 +331,22 @@ VALUES(7008, 98, 9050003, 4, 6003, STR_TO_DATE('03-01-2018', '%m-%d-%Y'), 'Anima
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(7009, 99, 9050017, 7, 6003, STR_TO_DATE('03-01-2018', '%m-%d-%Y'), 'Animal Control');
 
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(7010, 110, 9050017, 3, 6001, STR_TO_DATE('12-12-2013', '%m-%d-%Y'), 'Animal Control');
+
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(7011, 111, 9050017, 3, 6004, STR_TO_DATE('12-13-2013', '%m-%d-%Y'), 'Surrendered');
+
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(7012, 112, 9050003, 3, 6001, STR_TO_DATE('12-14-2013', '%m-%d-%Y'), 'Animal Control');
+
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(7013, 113, 9050003, 3, 6001, STR_TO_DATE('12-15-2013', '%m-%d-%Y'), 'Animal Control');
+
+INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
+VALUES(7014, 114, 9050003, 3, 6001, STR_TO_DATE('12-16-2013', '%m-%d-%Y'), 'Animal Control');
+
+-- --------------------Animals added for fosterhome_animal
 
 -- INSERT_adoption
 -- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
@@ -396,4 +428,21 @@ INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_da
 VALUES(155, 103, 400, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
 
 INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
-VALUES(166, 109, 700, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
+VALUES(166, 109, 700, STR_TO_DATE('11-01-2020', '%m-%d-%Y'));
+
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(170, 110, 700, STR_TO_DATE('11-02-2020', '%m-%d-%Y'));
+
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(177, 111, 600, STR_TO_DATE('11-02-2020', '%m-%d-%Y'));
+
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(188, 112, 700, STR_TO_DATE('11-03-2020', '%m-%d-%Y'));
+
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(199, 113, 800, STR_TO_DATE('11-04-2020', '%m-%d-%Y'));
+
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(210, 114, 999, STR_TO_DATE('11-05-2020', '%m-%d-%Y'));
+
+
