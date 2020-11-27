@@ -190,13 +190,13 @@ INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, a
 VALUES (109, 'Ron', STR_TO_DATE('06-18-2020', '%m-%d-%Y'), 'Dog', 'Golden Retriever', 'M', TRUE, '60 lbs, playful, blonde, gentle but excited', 10, TRUE, TRUE, FALSE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
-VALUES (90, 'Larry', STR_TO_DATE('05-15-2006', '%m-%d-%Y'), 'Dog', 'Daschund', 'M', TRUE, '10 lbs, shy, all white and very quite', 3, TRUE, FALSE, TRUE);
+VALUES (90, 'Larry', STR_TO_DATE('05-15-2006', '%m-%d-%Y'), 'Dog', 'Daschund', 'M', TRUE, '10 lbs, shy, all white and very quite', 10, TRUE, FALSE, TRUE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
-VALUES (91, 'Sammy', STR_TO_DATE('06-15-2006', '%m-%d-%Y'), 'Dog', 'Great Dane', 'M', TRUE, 'lbs brown and white', 4, TRUE, FALSE, TRUE);
+VALUES (91, 'Sammy', STR_TO_DATE('06-15-2006', '%m-%d-%Y'), 'Dog', 'Great Dane', 'M', TRUE, '100 lbs brown and white', 10, TRUE, FALSE, TRUE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
-VALUES (92, 'Bobby', STR_TO_DATE('07-15-2006', '%m-%d-%Y'), 'Dog', 'Black Labrador', 'F', TRUE, '45 lbs black, enthusiastic, cuddly', 5, TRUE, FALSE, TRUE);
+VALUES (92, 'Bobby', STR_TO_DATE('07-15-2006', '%m-%d-%Y'), 'Dog', 'Black Labrador', 'F', TRUE, '45 lbs black, enthusiastic, cuddly', 10, TRUE, FALSE, TRUE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
 VALUES (93, 'Franky', STR_TO_DATE('08-15-2006', '%m-%d-%Y'), 'Dog', 'Pitbull', 'M', TRUE, '50 lbs lazy and territorial', 1, TRUE, FALSE, TRUE);
@@ -286,19 +286,19 @@ INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, int
 VALUES(8004, 104, 9050003, 5, 6004, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), 'Surrendered');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8005, 105, 9050003, 3, 6005, STR_TO_DATE('09-05-2020', '%m-%d-%Y'), 'Surrendered');
+VALUES(8005, 105, 9050003, 6, 6005, STR_TO_DATE('09-05-2020', '%m-%d-%Y'), 'Surrendered');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8006, 106, 9050003, 5, 6006, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Surrendered');
+VALUES(8006, 106, 9050003, 7, 6006, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Surrendered');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8007, 107, 9050016, 3, 6007, STR_TO_DATE('07-25-2020', '%m-%d-%Y'), 'Animal Control');
+VALUES(8007, 107, 9050016, 8, 6007, STR_TO_DATE('07-25-2020', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8008, 108, 9050017, 3, 6008, STR_TO_DATE('10-22-2020', '%m-%d-%Y'), 'Animal Control');
+VALUES(8008, 108, 9050017, 9, 6008, STR_TO_DATE('10-22-2020', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8009, 109, 9050017, 5, 6009, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), 'Baby');
+VALUES(8009, 109, 9050017, 10, 6009, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), 'Baby');
 
 -- -------------------------------------Adopted Animals
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
@@ -346,7 +346,6 @@ VALUES(7013, 113, 9050003, 3, 6001, STR_TO_DATE('12-15-2013', '%m-%d-%Y'), 'Anim
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(7014, 114, 9050003, 3, 6001, STR_TO_DATE('12-16-2013', '%m-%d-%Y'), 'Animal Control');
 
--- --------------------Animals added for fosterhome_animal
 
 -- INSERT_adoption
 -- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
@@ -444,5 +443,3 @@ VALUES(199, 113, 800, STR_TO_DATE('11-04-2020', '%m-%d-%Y'));
 
 INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
 VALUES(210, 114, 999, STR_TO_DATE('11-05-2020', '%m-%d-%Y'));
-
-
