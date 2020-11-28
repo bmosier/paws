@@ -211,7 +211,7 @@ FOREIGN KEY (shelter_ID) REFERENCES shelter (shelter_ID);
 -- --------------------INSERTS------------------------------ --
 -- ------------------------------------------------------------- --
 
--- INSERT_staffmember
+-- ---------------------INSERT staffmember--------------------------- --
 INSERT INTO staffmember (staff_ID, staff_first_name, staff_last_name, staff_phone_ext, staff_phone, staff_street, staff_city, staff_state, staff_zipcode, is_admin) 
 VALUES (9050001,'Elizabeth', 'Wright', 1, 5415550115,'218 Lincoln Dr.','Medford','OR',97504,TRUE);
 
@@ -243,7 +243,7 @@ INSERT INTO staffmember (staff_ID, staff_first_name, staff_last_name, staff_phon
 VALUES (9050019,'Stewart', 'Reed', 10, 9075550111,'103 Bridge Lane','Talent','OR',97540,FALSE);
 
 
--- INSERT_shelter
+-- ---------------------INSERT shelter--------------------------- --
 INSERT INTO shelter (shelter_ID, shelter_name, shelter_phone, shelter_street, shelter_city, shelter_state, shelter_zip_code, max_animals) 
 VALUES (1,'Happy Cats Animal Shelter', 5049999999,' 1234 Apple St.','Medford','OR',97504,60);
 
@@ -275,7 +275,7 @@ INSERT INTO shelter (shelter_ID, shelter_name, shelter_phone, shelter_street, sh
 VALUES (10,'Cats the shelter', 8216921447,' 1234 John St.','Grants Pass','OR',97527,5);
 
 
--- INSERT_staffmember_shelter
+-- ---------------------INSERT staffmember_shelter--------------------------- --
 INSERT INTO staffmember_shelter (staff_ID, shelter_ID)
 VALUES(9050001, 1);
 
@@ -307,7 +307,7 @@ INSERT INTO staffmember_shelter (staff_ID, shelter_ID)
 VALUES(9050019, 10);
 
 
--- INSERT_volunteer
+-- ---------------------INSERT volunteer--------------------------- --
 INSERT INTO volunteer (volunteer_ID, volunteer_first_name, volunteer_last_name, volunteer_phone, volunteer_street, volunteer_city, volunteer_state, volunteer_zip_code, volunteer_email)
 VALUES (34,'Barry','White',5411111234,'123 Circle St.','Medford','OR',97504, 'whiteb@workemail.com');
 
@@ -339,7 +339,7 @@ INSERT INTO volunteer (volunteer_ID, volunteer_first_name, volunteer_last_name, 
 VALUES (43, 'Fritz', 'Fern', 5411111243, '129 Circle St.', 'Medford', 'OR', 97504, 'runmf@email.com');
 
 
--- INSERT_fosterhome
+-- ---------------------INSERT fosterhome--------------------------- -- 
 INSERT INTO fosterhome (foster_ID, volunteer_ID, foster_phone, foster_street, foster_city, foster_state, foster_zip_code, max_animals)
 VALUES (100, 34, 8675309, '123 Circle St.', 'Medford', 'OR', 97504, 2);
 
@@ -371,7 +371,7 @@ INSERT INTO fosterhome (foster_ID, volunteer_ID, foster_phone, foster_street, fo
 VALUES (999, 43, 8675319, '7777 Seven St.', 'Ashland', 'OR', 97502, 6);
 
 
--- INSERT_animal
+-- ---------------------INSERT animal--------------------------- -- 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
 VALUES (100, 'snek', STR_TO_DATE('06-09-2020', '%m-%d-%Y'), 'Dog', 'Pitbull', 'M', TRUE, '100 lb brown and white pitbull, calm, fun', null, TRUE, TRUE, FALSE);
 
@@ -448,8 +448,7 @@ INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, a
 VALUES (114, 'Shaggy', STR_TO_DATE('05-21-13', '%m-%d-%Y'), 'Dog', 'Puli', 'F', TRUE, '45 lbs looks like a mop, fun and cuddly', null, FALSE, TRUE, FALSE);
 
 
--- INSERT_customer
--- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
+-- ---------------------INSERT customer--------------------------- -- 
 INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
 VALUES(6001, 'Xavier', 'Nolan', 5418881591, '123 Main St.', 'Medford', 'OR', 97504, STR_TO_DATE('04-01-2015', '%m-%d-%Y'), 'Xn@email.com', STR_TO_DATE('11-11-2010', '%m-%d-%Y'));
 
@@ -481,8 +480,7 @@ INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, cust
 VALUES(6010, 'Graham', 'Sherman', 5418881600, '800 NW Q St.', 'Medford', 'OR', 97504, STR_TO_DATE('08-11-2020', '%m-%d-%Y'), 'runaway@email.com', STR_TO_DATE('08-11-2011', '%m-%d-%Y'));
 
 
--- INSERT_intake
--- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
+-- ---------------------INSERT intake--------------------------- -- 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(8000, 100, 9050012, 5, 6001, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Animal Control');
 
@@ -513,7 +511,6 @@ VALUES(8008, 108, 9050018, 9, 6008, STR_TO_DATE('10-22-2020', '%m-%d-%Y'), 'Anim
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(8009, 109, 9050019, 10, 6009, STR_TO_DATE('06-18-2020', '%m-%d-%Y'), 'Baby');
 
--- -------------------------------------Adopted Animals
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(7000, 90, 9050019, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
 
@@ -560,8 +557,7 @@ INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, int
 VALUES(7014, 114, 9050003, 3, 6001, STR_TO_DATE('12-16-2013', '%m-%d-%Y'), 'Animal Control');
 
 
--- INSERT_adoption
--- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
+-- ---------------------INSERT adoption--------------------------- -- 
 INSERT INTO adoption (adoption_ID, animal_ID, customer_ID, staff_ID, adoption_date)
 VALUES (3, 90, 6005, 9050001, STR_TO_DATE('10-22-2020', '%m-%d-%Y'));
 
@@ -593,7 +589,7 @@ INSERT INTO adoption (adoption_ID, animal_ID, customer_ID, staff_ID, adoption_da
 VALUES (35, 99, 6010, 9050017, STR_TO_DATE('10-27-2020', '%m-%d-%Y'));
 
 
--- INSERT_volunteer_shelter
+-- ---------------------INSERT volunteer_shelter--------------------------- -- 
 INSERT INTO volunteer_shelter (volunteer_ID, shelter_ID)
 VALUES (34, 3);
 
@@ -625,8 +621,7 @@ INSERT INTO volunteer_shelter (volunteer_ID, shelter_ID)
 VALUES (43, 3);
 
 
--- INSERT_fosterhome_animal
--- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
+-- ---------------------INSERT fosterhome_animal--------------------------- --  
 INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
 VALUES(122, 100, 100, STR_TO_DATE('05-09-2019', '%m-%d-%Y'));
 
