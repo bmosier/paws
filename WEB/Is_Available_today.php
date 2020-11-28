@@ -6,19 +6,23 @@
 	</head>
 
 	<body>
-		<h2>Animals currently available for adoption (View)</h2>
 		<div id="bar">
         		<div class="link"><a href="LandingPage.html">Landing Page</a></div>
             		<div class="link"><a href="PAWS.html">PAWS Homepage</a></div>
       		</div>
 
-		<h4>Author: Samuel James</h4>
+		<h2>Animals currently available for adoption (View)</h2>
+		<h3>Author: Samuel James</h3>
+		<br>
 		<h4>Description</h4>
 		<p>this is a view for all animal currently available for adoption</p>
+		<br>
 		<h4>Justification</h4>
 		<p>this allows customers to easily and quickly view all animals available for adoption</p>
+		<br>
 		<h4>Expected Execution</h4>
 		<p>All animals that have not been adopted shall be returned</p>
+		<br>
 <?php
 	require_once '/home/SOU/jamess1/dbconfig.php';
 	error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
