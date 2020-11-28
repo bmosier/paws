@@ -69,6 +69,17 @@ font-weight:bold;
 font-family:Arial, Helvetica, sans-serif;
 }
 
+#header h2
+{
+position:relative;
+left:33px;
+top:21px;
+color:#2C2C2C;
+text-align:center;
+font-weight:bold;
+font-family:Arial, Helvetica, sans-serif;
+}
+
 
 #bar
 {
@@ -112,16 +123,6 @@ color:#999999;
 
 
 
-.contentTitle
-{
-width:676px;
-height:37px;
-margin-top:20px;
-margin-left:25px;
-margin-right:25px;
-margin-bottom:10px;
-
-}
 
 .contentTitle h1
 {
@@ -147,17 +148,4 @@ font-size:13px;
 color:#F8F8FF;
 line-height:30px;
 letter-spacing:-1px;
-}
-
-a
-{
-text-decoration:none;
-color:#F8F8FF;
-border-bottom:1px dashed #2A2A2A;
-}
-
-a:hover
-{
-color:#8F8F8F;
-border-bottom:1px dotted #2A2A2A;
 }
