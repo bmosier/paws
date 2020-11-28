@@ -102,10 +102,10 @@ INSERT INTO volunteer (volunteer_ID, volunteer_first_name, volunteer_last_name, 
 VALUES (35,'Roy','Barber',5411111235,'124 Circle St.','Medford','OR',97504,'catdog22@netservice.net');
 
 INSERT INTO volunteer (volunteer_ID, volunteer_first_name, volunteer_last_name, volunteer_phone, volunteer_street, volunteer_city, volunteer_state, volunteer_zip_code, volunteer_email)
-VALUES (36, 'Deborah','Randolph',5411111236	,'321 Square St.'	,'Medford'	,'OR',97504,'birdluvr@birds.org');
+VALUES (36, 'Deborah','Randolph',5411111236	,'321 Square St.','Medford'	,'OR',97504,'birdluvr@birds.org');
 
 INSERT INTO volunteer (volunteer_ID, volunteer_first_name, volunteer_last_name, volunteer_phone, volunteer_street, volunteer_city, volunteer_state, volunteer_zip_code, volunteer_email)
-VALUES (37, 'Clifford', 'Hubbard'	,5411111237	,'859 5th St.'	,'Medford','OR',97504,'sasquatch88@outlook.com');
+VALUES (37, 'Clifford', 'Hubbard'	,5411111237	,'859 5th St.','Medford','OR',97504,'sasquatch88@outlook.com');
 
 INSERT INTO volunteer (volunteer_ID, volunteer_first_name, volunteer_last_name, volunteer_phone, volunteer_street, volunteer_city, volunteer_state, volunteer_zip_code, volunteer_email)
 VALUES (38, 'Daniel', 'Smith', 5411111238, '3458 6th St.', 'Medford', 'OR', 97504, 'funfunfun@email.com');
@@ -237,111 +237,111 @@ VALUES (114, 'Shaggy', STR_TO_DATE('05-21-13', '%m-%d-%Y'), 'Dog', 'Puli', 'F', 
 
 -- INSERT_customer
 -- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6001, 'Xavier', 'Nolan', 5418881591, '123 Main St.', 'Medford', 'OR', 97504, STR_TO_DATE('04-01-2015', '%m-%d-%Y'), 'Xn@email.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6001, 'Xavier', 'Nolan', 5418881591, '123 Main St.', 'Medford', 'OR', 97504, STR_TO_DATE('04-01-2015', '%m-%d-%Y'), 'Xn@email.com', STR_TO_DATE('11-11-2010', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6002, 'Jordan', 'House', 5418881592, '321 A St.', 'Medford', 'OR', 97504, STR_TO_DATE('04-02-2015', '%m-%d-%Y'), 'ZFS@gmail.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6002, 'Jordan', 'House', 5418881592, '321 A St.', 'Medford', 'OR', 97504, STR_TO_DATE('04-02-2015', '%m-%d-%Y'), 'ZFS@gmail.com', STR_TO_DATE('12-11-2010', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6003, 'Alex', 'Maddox', 5418881593, '465 B St.', 'Medford', 'OR', 97504, STR_TO_DATE('02-02-2019', '%m-%d-%Y'), 'what@email.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6003, 'Alex', 'Maddox', 5418881593, '465 B St.', 'Medford', 'OR', 97504, STR_TO_DATE('01-11-2011', '%m-%d-%Y'), 'what@email.com', STR_TO_DATE('01-11-2011', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6004, 'Bob', 'Maynard', 5418881594, '675 C St.', 'Medford', 'OR', 97504, STR_TO_DATE('03-15-2019', '%m-%d-%Y'), 'who@yahoo.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6004, 'Bob', 'Maynard', 5418881594, '675 C St.', 'Medford', 'OR', 97504, STR_TO_DATE('02-11-2011', '%m-%d-%Y'), 'who@yahoo.com', STR_TO_DATE('02-11-2011', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6005, 'Kevin', 'Chan', 5418881595, '999 Cat St.', 'Medford', 'OR', 97504, STR_TO_DATE('12-20-2018', '%m-%d-%Y'), 'budmdum@gmail.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6005, 'Kevin', 'Chan', 5418881595, '999 Cat St.', 'Medford', 'OR', 97504, STR_TO_DATE('03-11-2011', '%m-%d-%Y'), 'budmdum@gmail.com', STR_TO_DATE('03-11-2011', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6006, 'John', 'Jones', 5418881596, '123 Dog St.', 'Medford', 'OR', 97504, STR_TO_DATE('06-23-2019', '%m-%d-%Y'), 'fightme@yahoo.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6006, 'John', 'Jones', 5418881596, '123 Dog St.', 'Medford', 'OR', 97504, STR_TO_DATE('04-11-2011', '%m-%d-%Y'), 'fightme@yahoo.com', STR_TO_DATE('04-11-2011', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6007, 'Jane', 'Acosta', 5418881597, '555 L St', 'Medford', 'OR', 97504, STR_TO_DATE('04-07-2015', '%m-%d-%Y'), 'noneofyall@hotmail.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6007, 'Jane', 'Acosta', 5418881597, '555 L St', 'Medford', 'OR', 97504, STR_TO_DATE('05-11-2011', '%m-%d-%Y'), 'noneofyall@hotmail.com', STR_TO_DATE('05-11-2011', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6008, 'Jonathon', 'Chapman', 5418881598, '999 Main St', 'Medford', 'OR', 97504, STR_TO_DATE('04-21-2020', '%m-%d-%Y'), 'this@gmail.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6008, 'Jonathon', 'Chapman', 5418881598, '999 Main St', 'Medford', 'OR', 97504, STR_TO_DATE('06-11-2011', '%m-%d-%Y'), 'this@gmail.com', STR_TO_DATE('06-11-2011', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6009, 'Jarrett', 'Mendoza', 5418881599, '101 Jack St.', 'Medford', 'OR', 97504, STR_TO_DATE('05-03-2020', '%m-%d-%Y'), 'that@email.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6009, 'Jarrett', 'Mendoza', 5418881599, '101 Jack St.', 'Medford', 'OR', 97504, STR_TO_DATE('07-11-2010', '%m-%d-%Y'), 'that@email.com', STR_TO_DATE('07-11-2011', '%m-%d-%Y'));
 
-INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email)
-VALUES(6010, 'Graham', 'Sherman', 5418881600, '800 NW Q St.', 'Medford', 'OR', 97504, STR_TO_DATE('06-19-2020', '%m-%d-%Y'), 'runaway@email.com');
+INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
+VALUES(6010, 'Graham', 'Sherman', 5418881600, '800 NW Q St.', 'Medford', 'OR', 97504, STR_TO_DATE('08-11-2020', '%m-%d-%Y'), 'runaway@email.com', STR_TO_DATE('08-11-2011', '%m-%d-%Y'));
 
 
 -- INSERT_intake
 -- STR_TO_DATE('06-10-2020', '%m-%d-%Y')
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8000, 100, 9050001, 5, 6001, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(8000, 100, 9050012, 5, 6001, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8001, 101, 9050001, 5, 6001, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Baby');
+VALUES(8001, 101, 9050012, 5, 6001, STR_TO_DATE('06-10-2020', '%m-%d-%Y'), 'Baby');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8002, 102, 9050002, 3, 6002, STR_TO_DATE('07-25-2020', '%m-%d-%Y'), 'Baby');
+VALUES(8002, 102, 9050003, 3, 6002, STR_TO_DATE('06-11-2020', '%m-%d-%Y'), 'Baby');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(8003, 103, 9050003, 3, 6003, STR_TO_DATE('10-22-2020', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8004, 104, 9050003, 5, 6004, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), 'Surrendered');
+VALUES(8004, 104, 9050012, 5, 6004, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), 'Surrendered');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8005, 105, 9050003, 6, 6005, STR_TO_DATE('09-05-2020', '%m-%d-%Y'), 'Surrendered');
+VALUES(8005, 105, 9050014, 6, 6005, STR_TO_DATE('09-05-2020', '%m-%d-%Y'), 'Surrendered');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8006, 106, 9050003, 7, 6006, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Surrendered');
+VALUES(8006, 106, 9050016, 7, 6006, STR_TO_DATE('06-08-2018', '%m-%d-%Y'), 'Surrendered');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8007, 107, 9050016, 8, 6007, STR_TO_DATE('07-25-2020', '%m-%d-%Y'), 'Animal Control');
+VALUES(8007, 107, 9050017, 8, 6007, STR_TO_DATE('07-25-2020', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8008, 108, 9050017, 9, 6008, STR_TO_DATE('10-22-2020', '%m-%d-%Y'), 'Animal Control');
+VALUES(8008, 108, 9050018, 9, 6008, STR_TO_DATE('10-22-2020', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(8009, 109, 9050017, 10, 6009, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), 'Baby');
+VALUES(8009, 109, 9050019, 10, 6009, STR_TO_DATE('06-18-2020', '%m-%d-%Y'), 'Baby');
 
 -- -------------------------------------Adopted Animals
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7000, 90, 9050016, 3, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7000, 90, 9050019, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7001, 91, 9050017, 4, 6002, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7001, 91, 9050019, 10, 6002, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7002, 92, 9050017, 5, 6003, STR_TO_DATE('09-04-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7002, 92, 9050019, 10, 6003, STR_TO_DATE('07-15-2006', '%m-%d-%Y'), 'Baby');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7003, 93, 9050017, 1, 6003, STR_TO_DATE('09-01-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7003, 93, 9050001, 1, 6003, STR_TO_DATE('09-01-2018', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7004, 94, 9050017, 1, 6007, STR_TO_DATE('08-01-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7004, 94, 9050001, 1, 6007, STR_TO_DATE('08-01-2018', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7005, 95, 9050003, 2, 6003, STR_TO_DATE('08-01-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7005, 95, 9050002, 2, 6003, STR_TO_DATE('08-01-2018', '%m-%d-%Y'), 'Surrendered');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7006, 96, 9050003, 2, 6004, STR_TO_DATE('07-01-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7006, 96, 9050002, 2, 6004, STR_TO_DATE('07-01-2018', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7007, 97, 9050003, 3, 6003, STR_TO_DATE('03-01-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7007, 97, 9050003, 3, 6003, STR_TO_DATE('12-15-2006', '%m-%d-%Y'), 'Baby');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7008, 98, 9050003, 4, 6003, STR_TO_DATE('03-01-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7008, 98, 9050004, 4, 6003, STR_TO_DATE('03-08-2010', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7009, 99, 9050017, 7, 6003, STR_TO_DATE('03-01-2018', '%m-%d-%Y'), 'Animal Control');
+VALUES(7009, 99, 9050016, 7, 6003, STR_TO_DATE('02-15-2007', '%m-%d-%Y'), 'Baby');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7010, 110, 9050017, 3, 6001, STR_TO_DATE('12-12-2013', '%m-%d-%Y'), 'Animal Control');
+VALUES(7010, 110, 9050017, 8, 6001, STR_TO_DATE('12-12-2013', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7011, 111, 9050017, 3, 6004, STR_TO_DATE('12-13-2013', '%m-%d-%Y'), 'Surrendered');
+VALUES(7011, 111, 9050003, 3, 6004, STR_TO_DATE('12-13-2013', '%m-%d-%Y'), 'Surrendered');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(7012, 112, 9050003, 3, 6001, STR_TO_DATE('12-14-2013', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(7013, 113, 9050003, 3, 6001, STR_TO_DATE('12-15-2013', '%m-%d-%Y'), 'Animal Control');
+VALUES(7013, 113, 9050003, 3, 6001, STR_TO_DATE('04-19-2013', '%m-%d-%Y'), 'Baby');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(7014, 114, 9050003, 3, 6001, STR_TO_DATE('12-16-2013', '%m-%d-%Y'), 'Animal Control');
@@ -443,3 +443,4 @@ VALUES(199, 113, 800, STR_TO_DATE('11-04-2020', '%m-%d-%Y'));
 
 INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
 VALUES(210, 114, 999, STR_TO_DATE('11-05-2020', '%m-%d-%Y'));
+
