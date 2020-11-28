@@ -12,8 +12,11 @@
 	<body>
 		<h2>Customer Staff Statistics Report (Procedure)</h2>
 		<h4>Author: Samuel James</h4>
+		<br>
 		<p><b>Description:</b> This page allows shelter managers a way to view the amount animals currently up for adoption for a given shelter name</p>
+		<br>
 		<p><b>Justification:</b> This page is useful to shelter managers who need to view the amount of animals currently in their shelter</p>
+		<br>
 		<p><b>Expected Execution:</b> Upon inputting a shelter name the count of all animals ready for adoption at the given shelter or foster name shall be displayed.</p>
 		<form method="post">
 			<br>
