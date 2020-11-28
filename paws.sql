@@ -16,7 +16,7 @@ DROP TABLE IF EXISTS staffmember;
 CREATE TABLE animal (
     animal_ID INT(7) NOT NULL,
     name VARCHAR(50) NOT NULL,
-    animal_DOB DATETIME NOT NULL,
+    animal_DOB DATE NOT NULL,
     animal_species VARCHAR(50) NOT NULL,
     animal_breed VARCHAR(50) NOT NULL,
     animal_sex ENUM("M", "F") NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE adoption (
     animal_ID INT(7) NOT NULL,
     customer_ID INT(7) NOT NULL,
     staff_ID INT(7) NOT NULL,
-    adoption_date DATETIME NOT NULL,
+    adoption_date DATE NOT NULL,
     PRIMARY KEY (adoption_ID)
 );
 
@@ -44,7 +44,7 @@ CREATE TABLE fosterhome_animal (
     foster_animal_ID INT(7) NOT NULL,
     animal_ID INT(7) NOT NULL,
     foster_ID INT(7) NOT NULL,
-    foster_date DATETIME NOT NULL,
+    foster_date DATE NOT NULL,
     PRIMARY KEY (foster_animal_ID)
 );
 
@@ -60,6 +60,7 @@ CREATE TABLE customer (
     customer_zip_code INT(5) NOT NULL,
     Last_contacted DATE NOT NULL,
     customer_email VARCHAR(255) NOT NULL,
+    register_date DATE NOT NULL,
     PRIMARY KEY (customer_ID)
 );
 
@@ -139,7 +140,7 @@ CREATE TABLE intake (
     customer_ID INT NOT NULL, 
     staff_ID INT NOT NULL,
     shelter_ID INT NOT NULL, -- should we add fosterhome_ID as a FK as well?
-    intake_date DATETIME NOT NULL,
+    intake_date DATE NOT NULL,
     intake_type VARCHAR(255) NOT NULL, -- added type of intake 
     PRIMARY KEY (intake_ID)
 );
