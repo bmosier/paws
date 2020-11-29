@@ -81,15 +81,6 @@ DELIMITER ;
 START TRANSACTION;
 SELECT * FROM shelter;
 SELECT * FROM intake;
-							  
-INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(199, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
-
-INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(200, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
-
-INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(201, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
 
 INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
 VALUES(103, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
