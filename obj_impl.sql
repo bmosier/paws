@@ -72,12 +72,12 @@ START TRANSACTION;
 SELECT * FROM fosterhome;
 SELECT * FROM fosterhome_animal;
 INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
-VALUES(177, 90, 100, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
+VALUES(301, 90, 100, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
 SELECT * FROM fosterhome_animal;
 
 -- WILL GET ERROR HERE (AS EXPECTED):
 INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
-VALUES(188, 91, 100, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
+VALUES(302, 91, 100, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
 
 SELECT * FROM fosterhome_animal;
 -- DON'T FORGET TO RUN THIS AFTER THE PREVIOUS ERROR:
