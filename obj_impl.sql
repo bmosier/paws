@@ -87,7 +87,7 @@ SELECT * FROM fosterhome_animal;
 -- 
 -- End of object implementations assigned to: Denis Roman
 -- 
-
+-- ______________________________________________________________________________________________________
 -- 
 -- Implementation of the following objects assigned to: Samuel James
 --
@@ -189,3 +189,4 @@ SELECT * FROM intake;
 -- 
 -- End of object implementations assigned to: Samuel James
 -- 
+-- ______________________________________________________________________________________________________
