@@ -6,7 +6,6 @@
 	</head>
 		<div id="bar">
         		<div class="link"><a href="LandingPage.html">Landing Page</a></div>
-            		<div class="link"><a href="PAWS.html">PAWS Homepage</a></div>
       		</div>
 
 	<body>
