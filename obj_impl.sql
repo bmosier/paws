@@ -83,7 +83,8 @@ SELECT * FROM fosterhome_animal;
 -- DON'T FORGET TO RUN THIS AFTER THE PREVIOUS ERROR:
 ROLLBACK;
 SELECT * FROM fosterhome_animal;
-
+				 
+-- ______________________________________________________________________________________________________
 -- 
 -- End of object implementations assigned to: Denis Roman
 -- 
@@ -164,29 +165,68 @@ BEGIN
  	SIGNAL SQLSTATE '75000' SET MESSAGE_TEXT = 'Unable to exceed shelter maximum capacity';
     END IF;
 END$$
-DELIMITER ;
-
--- trigger test
-START TRANSACTION;
-SELECT * FROM shelter;
-SELECT * FROM intake;
-
-INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(103, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
-
-SELECT * FROM intake;							  
-							  
--- WILL GET ERROR HERE (AS EXPECTED):						  
-INSERT INTO intake (intake_ID, animal_ID, staff_ID, shelter_ID, customer_ID, intake_date, intake_type)
-VALUES(555, 90, 9050016, 10, 6001, STR_TO_DATE('09-05-2018', '%m-%d-%Y'), 'Animal Control');
-							 
-SELECT * FROM intake;
-
--- RUN FOLLOWING THE ERROR:
-ROLLBACK;
-SELECT * FROM intake;
-
+DELIMITER 
+-- ______________________________________________________________________________________________________
 -- 
 -- End of object implementations assigned to: Samuel James
+-- 
+-- ______________________________________________________________________________________________________
+-- 
+-- Implementation of the following objects assigned to: Ben Mosier
+--
+
+-- FUNCTION: get_age_descriptor - Ben Mosier							  
+DROP FUNCTION IF EXISTS get_age_descriptor;
+DELIMITER $$
+FUNCTION `get_age_descriptor`(_animal_ID int) RETURNS varchar(50) CHARSET latin1
+BEGIN
+
+DECLARE _age int;
+DECLARE _species varchar (50);
+
+-- get age in weeks and upper(species) for the following conditional block
+select DATEDIFF(CURRENT_DATE(), animal_DOB) / 7, upper(animal_species)
+	into _age, _species from animal
+	where animal_ID = _animal_ID;
+
+if (_species = "CAT" and _age < 10) then return "BABY";
+	elseif (_species = "CAT" and _age < 52 ) then return "KITTEN";
+	elseif (_species = "CAT" and _age < 104) then return "YOUNG";
+	elseif (_species = "CAT" and _age < 520) then return "ADULT";
+	elseif (_species = "DOG" and _age < 8 ) then return "BABY";
+	elseif (_species = "DOG" and _age < 52 ) then return "PUPPY";
+	elseif (_species = "DOG" and _age < 104) then return "YOUNG";
+	elseif (_species = "DOG" and _age < 520) then return "ADULT";
+    else return "SENIOR";
+END IF;  
+END
+
+-- TRIGGER: fosterhome_animal_AFTER_UPDATE - Ben Mosier
+DROP TRIGGER IF EXISTS fosterhome_animal_AFTER_UPDATE;	
+CREATE TRIGGER fosterhome_animal_AFTER_UPDATE AFTER UPDATE ON fosterhome_animal FOR EACH ROW							 
+BEGIN
+
+update animal
+set is_fostered = TRUE
+where animal.animal_ID = NEW.animal_ID;
+
+END
+
+-- PROCEDURE: to_shelter - Ben Mosier
+CREATE PROCEDURE to_shelter(_animal_ID int, _shelter_ID int)
+BEGIN
+-- To move an animal from a fosterhome to a shelter
+-- or
+-- Move an animal to a new shelter
+
+update animal
+set shelter_ID = _shelter_ID, is_currently_fostered = FALSE
+where animal_ID = _animal_ID;
+
+
+END
+-- ______________________________________________________________________________________________________							  
+-- 
+-- End of object implementations assigned to: Ben Mosier
 -- 
 -- ______________________________________________________________________________________________________
