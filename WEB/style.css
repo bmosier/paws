@@ -69,60 +69,6 @@ font-weight:bold;
 font-family:Arial, Helvetica, sans-serif;
 }
 
-#header h2
-{
-position:relative;
-left:33px;
-top:21px;
-color:#2C2C2C;
-text-align:center;
-font-weight:bold;
-font-family:Arial, Helvetica, sans-serif;
-}
-
-
-#bar
-{
-background-repeat:no-repeat;
-height:55px;
-width:750px;
-line-height:55px;
-padding-left:20px;
-padding-right:20px;
-}
-
-#bar .link
-{
-float:left;
-height:55px;
-}
-
-#bar .link:hover
-{
-background-repeat:no-repeat;
-background-position:center;
-
-
-}
-
-
-#bar a
-{
-font-size:14px;
-font-weight:bold;
-color:#FBFDFB;
-margin-left:27px;
-margin-right:27px;
-
-}
-
-#bar a:hover
-{
-color:#999999;
-}
-
-
-
 
 .contentTitle h1
 {
@@ -131,12 +77,6 @@ padding-top:8px;
 font-size:20px;
 font-weight:bold;
 color:#F8F8FF;
-}
-
-.comments
-{
-font-size:11px;
-font-style:italic;
 }
 
 .contentText
