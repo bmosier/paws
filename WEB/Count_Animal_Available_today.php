@@ -53,23 +53,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 ?>
 	</body>
 </html>
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	$shelter_name = $_POST['shelter_name'];
-	
-	$sql = new mysqli($hostname, $username, $password, $schema);
-	if ($sql->connect_errno) {
-		echo 'Connection failed: ' . $sql->connect_errno;
-	} else {
-	$qry = "SELECT count_animal_available_today('" . $shelter_name . "') AS Count;";
-	$result = $sql->query($qry);
-	echo '<th> ' . $shelter_name . ' </th>';
-	echo '<th>Amount Of Animals Ready For Adoption: </th>';
-	echo '<tr> ' . ($result->fetch_assoc())['Count'] . '</tr>';
 
-	$result->free_result();
-	$sql->close();
-	}
-}
-?>
-	</body>
-</html>
