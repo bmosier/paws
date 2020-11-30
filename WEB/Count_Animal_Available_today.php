@@ -9,7 +9,7 @@
       		</div>
 	</head>
 	<body>
-		<h2>Customer Staff Statistics Report (Procedure)</h2>
+		<h2>Count Animals Currently Available (Stored Function)</h2>
 		<h4>Author: Samuel James</h4>
 		<br>
 		<p><b>Description:</b> This page allows shelter managers a way to view the amount animals currently up for adoption for a given shelter name</p>
@@ -33,6 +33,26 @@ require_once '../dbconfig.php';
 error_reporting(E_ERROR | E_WARNING | E_PARSE | E_NOTICE);
 ini_set('display_errors', '1');
 
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	$shelter_name = $_POST['shelter_name'];
+	
+	$sql = new mysqli($hostname, $username, $password, $schema);
+	if ($sql->connect_errno) {
+		echo 'Connection failed: ' . $sql->connect_errno;
+	} else {
+	$qry = "SELECT count_animal_available_today('" . $shelter_name . "') AS Count;";
+	$result = $sql->query($qry);
+	echo '<th> ' . $shelter_name . ' </th>';
+	echo '<th>Amount Of Animals Ready For Adoption: </th>';
+	echo '<tr> ' . ($result->fetch_assoc())['Count'] . '</tr>';
+
+	$result->free_result();
+	$sql->close();
+	}
+}
+?>
+	</body>
+</html>
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	$shelter_name = $_POST['shelter_name'];
 	
