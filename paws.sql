@@ -17,7 +17,7 @@ DROP TABLE IF EXISTS staffmember;
 -- table definitions
 -- animal
 CREATE TABLE animal (
-    animal_ID INT(7) NOT NULL,
+    animal_ID INT(7) NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     animal_DOB DATE NOT NULL,
     animal_species VARCHAR(50) NOT NULL,
@@ -34,7 +34,7 @@ CREATE TABLE animal (
 
 -- adoption
 CREATE TABLE adoption (
-    adoption_ID INT(7) NOT NULL,
+    adoption_ID INT(7) NOT NULL AUTO_INCREMENT,
     animal_ID INT(7) NOT NULL,
     customer_ID INT(7) NOT NULL,
     staff_ID INT(7) NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE adoption (
 
 -- fosterhome_animal
 CREATE TABLE fosterhome_animal (
-    foster_animal_ID INT(7) NOT NULL,
+    foster_animal_ID INT(7) NOT NULL AUTO_INCREMENT,
     animal_ID INT(7) NOT NULL,
     foster_ID INT(7) NOT NULL,
     foster_date DATE NOT NULL,
@@ -53,7 +53,7 @@ CREATE TABLE fosterhome_animal (
 
 -- customer
 CREATE TABLE customer (
-    customer_ID INT NOT NULL,
+    customer_ID INT NOT NULL AUTO_INCREMENT,
     customer_first_name VARCHAR(50) NOT NULL,
     customer_last_name VARCHAR(50) NOT NULL,
     customer_phone BIGINT(10) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE customer (
 
 -- fosterhome
 CREATE TABLE fosterhome (
-    foster_ID INT NOT NULL,
+    foster_ID INT NOT NULL AUTO_INCREMENT,
     volunteer_ID INT NOT NULL,
     foster_phone BIGINT(10) NOT NULL,
     foster_street VARCHAR(50) NOT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE fosterhome (
 
 -- volunteer
 CREATE TABLE volunteer (
-    volunteer_ID INT(7) NOT NULL,
+    volunteer_ID INT(7) NOT NULL AUTO_INCREMENT,
     volunteer_first_name VARCHAR(50) NOT NULL,
     volunteer_last_name VARCHAR(50) NOT NULL,
     volunteer_phone BIGINT(10) NOT NULL,
@@ -110,7 +110,7 @@ CREATE TABLE staffmember_shelter (
 
 -- staffmember
 CREATE TABLE staffmember (
-    staff_ID INT NOT NULL,
+    staff_ID INT NOT NULL AUTO_INCREMENT,
     PRIMARY KEY (staff_ID),
     staff_first_name VARCHAR(50) NOT NULL, 
     staff_last_name VARCHAR(50) NOT NULL,
@@ -125,7 +125,7 @@ CREATE TABLE staffmember (
 
 -- shelter
 CREATE TABLE shelter (
-    shelter_ID INT NOT NULL,
+    shelter_ID INT NOT NULL AUTO_INCREMENT,
     shelter_name VARCHAR(50) NOT NULL,
     shelter_phone BIGINT(10) NOT NULL,
     shelter_street VARCHAR(50) NOT NULL,
@@ -138,7 +138,7 @@ CREATE TABLE shelter (
 
 -- intake
 CREATE TABLE intake (
-    intake_ID INT NOT NULL,
+    intake_ID INT NOT NULL AUTO_INCREMENT,
     animal_ID INT NOT NULL,
     customer_ID INT NOT NULL, 
     staff_ID INT NOT NULL,
