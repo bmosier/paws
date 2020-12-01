@@ -722,7 +722,7 @@ DROP VIEW IF EXISTS v_animal_info;
 CREATE VIEW v_animal_info AS
 SELECT a.animal_ID, a.name, a.animal_DOB, a.animal_species, a.animal_breed, 
     	a.animal_sex, a.animal_is_sterilized, a.animal_description, 
-    	s.shelter_name as 'Shelter or Foster name', s.shelter_city as 'city', s.shelter_street as 'street', 
+    	s.shelter_name as 'Shelter_or_Foster_name', s.shelter_city as 'city', s.shelter_street as 'street', 
     	s.shelter_state as 'state', s.shelter_phone as 'phone', s.shelter_zip_code as 'zipcode'
 FROM animal a, shelter s 
 WHERE a.shelter_ID = s.shelter_ID 
