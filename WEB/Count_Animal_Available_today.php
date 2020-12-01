@@ -18,13 +18,20 @@
 		<br>
 		<p><b>Expected Execution:</b> Upon inputting a shelter name the count of all animals ready for adoption at the given shelter or foster name shall be displayed.</p>
 		<form method="post">
-			<br>
-			<label for="sheltername">Shelter Name: </label>
-			<input type="text" name="shelter_name" id="shelter_name"<?php
-if (isset($_POST['shelter_name'])) {
-	echo ' value="' . $_POST['shelter_name'] . '"';
-}
-?> />
+			Shelter Name:
+			<select name="shelter_name" width=300 STYLE="width: 350px">
+  				<option value="Happy Cats Animal Shelter">Happy Cats Animal Shelter</option>
+  				<option value="Medford Animal Shelter">Medford Animal Shelter</option>
+				<option value="Southern Oregon Animal Rescue">Southern Oregon Animal Rescue</option>
+  				<option value="Oregon Animal Sanctuary">Oregon Animal Sanctuary</option>
+				<option value="Pets R Us">Pets R Us</option>
+  				<option value="Animal Savers">Animal Savers</option>
+				<option value="Petcompany">Petcompany</option>
+  				<option value="Animals INC">Animals INC</option>
+				<option value="We Help Shelter">We Help Shelter</option>
+  				<option value="Cats the shelter">Cats the shelter</option>
+
+			</select>
 			<br />
 			<input type="submit" value="Submit" />
 		</form>
