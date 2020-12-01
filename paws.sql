@@ -805,7 +805,7 @@ DELIMITER ;
 -- FUNCTION: get_age_descriptor - Ben Mosier							  
 DROP FUNCTION IF EXISTS get_age_descriptor;
 DELIMITER $$
-FUNCTION `get_age_descriptor`(_animal_ID int) RETURNS varchar(50) CHARSET latin1
+CREATE FUNCTION `get_age_descriptor`(_animal_ID int) RETURNS varchar(50) CHARSET latin1
 BEGIN
 
 DECLARE _age int;
