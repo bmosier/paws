@@ -663,9 +663,6 @@ CREATE VIEW v_volunteer_contact AS
 SELECT volunteer_id, volunteer_last_name, volunteer_first_name, volunteer_phone, volunteer_email
 FROM volunteer;
 
-SELECT * FROM volunteer;
-SELECT * FROM v_volunteer_contact;
-
 -- procedure: customer_contact_report - Denis Roman
 DROP PROCEDURE IF EXISTS customer_contact_report;
 DELIMITER $$
@@ -722,7 +719,7 @@ DELIMITER ;
 
 -- VIEW: v_animal_info - Samuel James
 DROP VIEW IF EXISTS v_animal_info;
-CREATE VIEW v_volunteer_contact AS
+CREATE VIEW v_animal_info AS
 SELECT a.animal_ID, a.name, a.animal_DOB, a.animal_species, a.animal_breed, 
     	a.animal_sex, a.animal_is_sterilized, a.animal_description, 
     	s.shelter_name as 'Shelter or Foster name', s.shelter_city as 'city', s.shelter_street as 'street', 
@@ -757,8 +754,8 @@ BEGIN
 	from volunteer 
 	join volunteer_shelter using(volunteer_ID) 
 	join shelter using(SHELTER_id) where shelter_name = sheltername;
-END$$
-DELIMITER;
+END
+DELIMITER $$;
 
 -- function: is_animal_available_today - Samuel James
 DROP FUNCTION IF EXISTS current_month_adoption_count;
@@ -773,8 +770,8 @@ BEGIN
 	WHERE animal_is_sterilized = 1
 	AND Shelter_or_Foster_name = shelter_name
 RETURN amount;
-END$$
-DELIMITER;
+END
+DELIMITER $$;
 
 -- trigger: intake_BEFORE_INSERT - Samuel James
 DROP TRIGGER IF EXISTS intake_BEFORE_INSERT;
@@ -826,10 +823,12 @@ if (_species = "CAT" and _age < 10) then return "BABY";
 	elseif (_species = "DOG" and _age < 520) then return "ADULT";
     else return "SENIOR";
 END IF;  
-END
+END$$
+DELIMITER ;
 
 -- TRIGGER: fosterhome_animal_AFTER_UPDATE - Ben Mosier
 DROP TRIGGER IF EXISTS fosterhome_animal_AFTER_UPDATE;	
+DELIMITER $$
 CREATE TRIGGER fosterhome_animal_AFTER_UPDATE AFTER UPDATE ON fosterhome_animal FOR EACH ROW							 
 BEGIN
 
@@ -837,9 +836,12 @@ update animal
 set is_fostered = TRUE
 where animal.animal_ID = NEW.animal_ID;
 
-END
+END$$
+DELIMITER ;
 
 -- PROCEDURE: to_shelter - Ben Mosier
+DROP PROCEDURE IF EXISTS to_shelter;	
+DELIMITER $$
 CREATE PROCEDURE to_shelter(_animal_ID int, _shelter_ID int)
 BEGIN
 -- To move an animal from a fosterhome to a shelter
@@ -851,7 +853,8 @@ set shelter_ID = _shelter_ID, is_currently_fostered = FALSE
 where animal_ID = _animal_ID;
 
 
-END
+END$$
+DELIMITER ;
 -- ______________________________________________________________________________________________________							  
 -- 
 -- End of object implementations assigned to: Ben Mosier
