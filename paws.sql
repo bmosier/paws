@@ -753,8 +753,10 @@ BEGIN
 	join shelter using(SHELTER_id) where shelter_name = sheltername;
 END
 						    
+DROP PROCEDURE IF EXISTS Adopt_By_Attribute;  
+DELIMITER $$
   -- procedure: Adopt_By_Attribute - Samuel James
-CREATE PROCEDURE Adopt_By_Attribute(breed VARCHAR(50), gender ENUM("M", "F"), species VARCHAR(50))
+CREATE PROCEDURE Adopt_By_Attribute(IN breed VARCHAR(50),IN gender ENUM("M", "F"),IN species VARCHAR(50))
 BEGIN
     select * from v_animal_info
     where animal_breed = breed
