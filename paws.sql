@@ -675,6 +675,8 @@ CREATE VIEW v_volunteer_contact AS
 SELECT volunteer_id, volunteer_last_name, volunteer_first_name, volunteer_phone, volunteer_email
 FROM volunteer;
 
+-- SELECT * FROM v_volunteer_contact;
+
 -- procedure: customer_contact_report - Denis Roman
 DROP PROCEDURE IF EXISTS customer_contact_report;
 DELIMITER $$
@@ -688,6 +690,12 @@ BEGIN
 		INNER JOIN animal ON temp.animal_ID = animal.animal_ID;
 END$$
 DELIMITER ;
+
+-- Example:
+-- CALL customer_contact_report(STR_TO_DATE('10-23-2020', '%m-%d-%Y'), STR_TO_DATE('10-26-2020', '%m-%d-%Y'));
+
+-- Expected Output:
+-- 4 rows having animal names Phillip, Dewy, Harry, and Barry, and all having had a wellness check.
 
 -- function: month_adoption_count - Denis Roman
 DROP FUNCTION IF EXISTS month_adoption_count;
@@ -705,6 +713,12 @@ BEGIN
 END$$
 DELIMITER ;
 
+-- Example:
+-- SELECT month_adoption_count(STR_TO_DATE('10-23-2020', '%m-%d-%Y'));
+
+-- Expected Output:
+-- Should output 10
+
 -- trigger: fosterhome_animal_BEFORE_INSERT - Denis Roman
 DROP TRIGGER IF EXISTS fosterhome_animal_BEFORE_INSERT;
 
@@ -720,6 +734,24 @@ BEGIN
     END IF;
 END$$
 DELIMITER ;
+
+-- Example:
+-- START TRANSACTION;
+-- SELECT * FROM fosterhome;
+-- SELECT * FROM fosterhome_animal;
+-- INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date) VALUES(301, 90, 100, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
+-- SELECT * FROM fosterhome_animal;
+
+-- -- WILL GET ERROR HERE (AS EXPECTED):
+-- INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date) VALUES(302, 91, 100, STR_TO_DATE('10-21-2020', '%m-%d-%Y'));
+
+-- SELECT * FROM fosterhome_animal;
+-- -- DON'T FORGET TO RUN THIS AFTER THE PREVIOUS ERROR:
+-- ROLLBACK;
+-- SELECT * FROM fosterhome_animal;
+
+-- Expected Output:
+-- Outputs "Unable to exceed foster home max animals" error when foster home would have max animals exceeded.
 
 -- 
 -- End of object implementations assigned to: Denis Roman
