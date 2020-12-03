@@ -674,8 +674,7 @@ BEGIN
 			FROM adoption INNER JOIN customer ON adoption.customer_ID = customer.customer_ID
 			WHERE adoption_date >= start_date AND adoption_date <= end_date) as temp
 		INNER JOIN animal ON temp.animal_ID = animal.animal_ID;
-END$$
-DELIMITER ;
+END
 
 -- function: month_adoption_count - Denis Roman
 DROP FUNCTION IF EXISTS month_adoption_count;
@@ -690,8 +689,7 @@ BEGIN
     WHERE YEAR(adoption_date) = YEAR(p_date) AND MONTH(adoption_date) = MONTH(p_date)
     INTO v_count;
 	RETURN v_count;
-END$$
-DELIMITER ;
+END
 
 -- trigger: fosterhome_animal_BEFORE_INSERT - Denis Roman
 DROP TRIGGER IF EXISTS fosterhome_animal_BEFORE_INSERT;
@@ -706,8 +704,7 @@ BEGIN
     IF v_current_count + 1 > v_max_animals THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Unable to exceed foster home max animals';
     END IF;
-END$$
-DELIMITER ;
+END
 
 -- 
 -- End of object implementations assigned to: Denis Roman
@@ -743,7 +740,7 @@ DELIMITER $$
 CREATE PROCEDURE staff_stats(IN sheltername VARCHAR(50))
 BEGIN
 	select staff_first_name as "Firstname", staff_last_name as "LastName", staff_phone as 'phone', 
-	staff_phone_ext as 'email or phone extension',
+	staff_phone_ext as 'email_or_phone_extension',
 	shelter_name
 	from staffmember s
 	join staffmember_shelter sm using(staff_ID) 
@@ -755,23 +752,21 @@ BEGIN
 	join volunteer_shelter using(volunteer_ID) 
 	join shelter using(SHELTER_id) where shelter_name = sheltername;
 END
-DELIMITER $$;
 
 -- function: is_animal_available_today - Samuel James
-DROP FUNCTION IF EXISTS current_month_adoption_count;
+DROP FUNCTION IF EXISTS is_animal_available_today;
 DELIMITER $$
-FUNCTION `is_animal_available_today`(shelter_name VARCHAR(50)) 
-	RETURNS tinyint(1)
+CREATE FUNCTION is_animal_available_today(shelter_name VARCHAR(50)) 
+	RETURNS INT
   	READS SQL DATA
 BEGIN
 	DECLARE amount INT;
 	SELECT count(*) into amount
 	FROM v_animal_info
 	WHERE animal_is_sterilized = 1
-	AND Shelter_or_Foster_name = shelter_name
-RETURN amount;
-END
-DELIMITER $$;
+	AND Shelter_or_Foster_name = shelter_name;
+	RETURN amount;
+END;
 
 -- trigger: intake_BEFORE_INSERT - Samuel James
 DROP TRIGGER IF EXISTS intake_BEFORE_INSERT;
@@ -788,8 +783,7 @@ BEGIN
     IF shelter_current_count + 1 > shelter_max_animals THEN
  	SIGNAL SQLSTATE '75000' SET MESSAGE_TEXT = 'Unable to exceed shelter maximum capacity';
     END IF;
-END$$
-DELIMITER ;
+END
 
 -- 
 -- End of object implementations assigned to: Samuel James
@@ -802,7 +796,7 @@ DELIMITER ;
 -- FUNCTION: get_age_descriptor - Ben Mosier							  
 DROP FUNCTION IF EXISTS get_age_descriptor;
 DELIMITER $$
-CREATE FUNCTION `get_age_descriptor`(_animal_ID int) RETURNS varchar(50) CHARSET latin1
+CREATE FUNCTION get_age_descriptor(_animal_ID int) RETURNS varchar(50) CHARSET latin1
 BEGIN
 
 DECLARE _age int;
@@ -823,8 +817,7 @@ if (_species = "CAT" and _age < 10) then return "BABY";
 	elseif (_species = "DOG" and _age < 520) then return "ADULT";
     else return "SENIOR";
 END IF;  
-END$$
-DELIMITER ;
+END
 
 -- TRIGGER: fosterhome_animal_AFTER_UPDATE - Ben Mosier
 DROP TRIGGER IF EXISTS fosterhome_animal_AFTER_UPDATE;	
@@ -836,8 +829,7 @@ update animal
 set is_fostered = TRUE
 where animal.animal_ID = NEW.animal_ID;
 
-END$$
-DELIMITER ;
+END
 
 -- PROCEDURE: to_shelter - Ben Mosier
 DROP PROCEDURE IF EXISTS to_shelter;	
@@ -847,14 +839,10 @@ BEGIN
 -- To move an animal from a fosterhome to a shelter
 -- or
 -- Move an animal to a new shelter
-
 update animal
 set shelter_ID = _shelter_ID, is_currently_fostered = FALSE
 where animal_ID = _animal_ID;
-
-
-END$$
-DELIMITER ;
+END
 -- ______________________________________________________________________________________________________							  
 -- 
 -- End of object implementations assigned to: Ben Mosier
