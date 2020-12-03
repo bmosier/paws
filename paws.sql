@@ -728,7 +728,7 @@ AND a.animal_ID NOT IN
 UNION
 SELECT animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, 
     	animal_is_sterilized, animal_description, volunteer_last_name, foster_city, 
-    	foster_street, foster_state, foster_city, foster_zip_code
+    	foster_street, foster_state, foster_phone, foster_zip_code
 FROM fosterhome JOIN fosterhome_animal using(foster_ID) JOIN animal using (animal_ID) JOIN volunteer using(volunteer_ID)
 WHERE is_fostered = TRUE
 AND animal_ID NOT IN
