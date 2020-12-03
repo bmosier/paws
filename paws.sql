@@ -686,7 +686,8 @@ BEGIN
 			FROM adoption INNER JOIN customer ON adoption.customer_ID = customer.customer_ID
 			WHERE adoption_date >= start_date AND adoption_date <= end_date) as temp
 		INNER JOIN animal ON temp.animal_ID = animal.animal_ID;
-END
+END$$
+DELIMITER ;
 
 -- function: month_adoption_count - Denis Roman
 DROP FUNCTION IF EXISTS month_adoption_count;
@@ -701,7 +702,8 @@ BEGIN
     WHERE YEAR(adoption_date) = YEAR(p_date) AND MONTH(adoption_date) = MONTH(p_date)
     INTO v_count;
 	RETURN v_count;
-END
+END$$
+DELIMITER ;
 
 -- trigger: fosterhome_animal_BEFORE_INSERT - Denis Roman
 DROP TRIGGER IF EXISTS fosterhome_animal_BEFORE_INSERT;
@@ -716,7 +718,8 @@ BEGIN
     IF v_current_count + 1 > v_max_animals THEN
 		SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Unable to exceed foster home max animals';
     END IF;
-END
+END$$
+DELIMITER ;
 
 -- 
 -- End of object implementations assigned to: Denis Roman
@@ -763,7 +766,8 @@ BEGIN
 	from volunteer 
 	join volunteer_shelter using(volunteer_ID) 
 	join shelter using(SHELTER_id) where shelter_name = sheltername;
-END
+END$$
+DELIMITER ;
 						    
 DROP PROCEDURE IF EXISTS Adopt_By_Attribute;  
 DELIMITER $$
@@ -774,7 +778,8 @@ BEGIN
     where animal_breed = breed
     and animal_sex = gender
     and animal_species = species;
-END
+END$$
+DELIMITER ;
 
 -- function: is_animal_available_today - Samuel James
 DROP FUNCTION IF EXISTS is_animal_available_today;
@@ -789,7 +794,8 @@ BEGIN
 	WHERE animal_is_sterilized = 1
 	AND Shelter_or_Foster_name = shelter_name;
 	RETURN amount;
-END;
+END$$
+DELIMITER ;
 
 -- trigger: intake_BEFORE_INSERT - Samuel James
 DROP TRIGGER IF EXISTS intake_BEFORE_INSERT;
@@ -806,7 +812,8 @@ BEGIN
     IF shelter_current_count + 1 > shelter_max_animals THEN
  	SIGNAL SQLSTATE '75000' SET MESSAGE_TEXT = 'Unable to exceed shelter maximum capacity';
     END IF;
-END
+END$$
+DELIMITER ;
 
 -- 
 -- End of object implementations assigned to: Samuel James
@@ -840,7 +847,8 @@ if (_species = "CAT" and _age < 10) then return "BABY";
 	elseif (_species = "DOG" and _age < 520) then return "ADULT";
     else return "SENIOR";
 END IF;  
-END
+END$$
+DELIMITER ;
 
 -- TRIGGER: fosterhome_animal_AFTER_UPDATE - Ben Mosier
 DROP TRIGGER IF EXISTS fosterhome_animal_AFTER_UPDATE;	
@@ -852,7 +860,8 @@ update animal
 set is_fostered = TRUE
 where animal.animal_ID = NEW.animal_ID;
 
-END
+END$$
+DELIMITER ;
 
 -- PROCEDURE: to_shelter - Ben Mosier
 DROP PROCEDURE IF EXISTS to_shelter;	
@@ -865,7 +874,8 @@ BEGIN
 update animal
 set shelter_ID = _shelter_ID, is_currently_fostered = FALSE
 where animal_ID = _animal_ID;
-END
+END$$
+DELIMITER ;
 -- ______________________________________________________________________________________________________							  
 -- 
 -- End of object implementations assigned to: Ben Mosier
