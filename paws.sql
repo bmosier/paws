@@ -752,6 +752,15 @@ BEGIN
 	join volunteer_shelter using(volunteer_ID) 
 	join shelter using(SHELTER_id) where shelter_name = sheltername;
 END
+						    
+  -- procedure: Adopt_By_Attribute - Samuel James
+CREATE PROCEDURE Adopt_By_Attribute(breed VARCHAR(50), gender ENUM("M", "F"), species VARCHAR(50))
+BEGIN
+    select * from v_animal_info
+    where animal_breed = breed
+    and animal_sex = gender
+    and animal_species = species;
+END
 
 -- function: is_animal_available_today - Samuel James
 DROP FUNCTION IF EXISTS is_animal_available_today;
