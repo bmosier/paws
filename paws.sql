@@ -904,6 +904,7 @@ DELIMITER ;
 -- Implementation of the following objects assigned to: Ben Mosier
 --
 
+-- VIEW: v_fostered_animals - Ben Mosier
 DROP VIEW IF EXISTS v_fostered_animals;								  
 CREATE VIEW v_fostered_animals AS
     SELECT 
