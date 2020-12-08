@@ -921,12 +921,12 @@ CREATE VIEW v_fostered_animals AS
     FROM
         ((((fosterhome
         JOIN fosterhome_animal ON ((fosterhome.foster_ID = fosterhome_animal.foster_ID)))
-        JOIN animal ON ((fosterhome_animal.animal_ID = f20_paws.animal.animal_ID)))
+        JOIN animal ON ((fosterhome_animal.animal_ID = animal.animal_ID)))
         JOIN volunteer ON ((fosterhome.volunteer_ID = volunteer.volunteer_ID)))
         JOIN shelter ON ((animal.shelter_ID = shelter.shelter_ID)))
     WHERE
         (animal.is_fostered = 1)
-    GROUP BY animal.animal_species							
+    GROUP BY animal.animal_species;						
 								  
 -- FUNCTION: get_age_descriptor - Ben Mosier							  
 DROP FUNCTION IF EXISTS get_age_descriptor;
