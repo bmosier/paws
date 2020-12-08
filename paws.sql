@@ -838,7 +838,7 @@ DELIMITER ;
 -- Shelter_or_Foster_name, city, street, state, phone and zipcode corresponding to the appropriate breed, species and gender i.e.
 -- ('112', 'Lazy', '2013-03-18', 'Dog', 'Daschund', 'F', '1', 'Small black and brown 15 lbs and fun', 'Jimson', 'Grants Pass', '1111 SW M St.', 'OR', '8675316', '97526')
 
--- function: is_animal_available_today - Samuel James
+-- function: Count_animal_available_today - Samuel James
 DROP FUNCTION IF EXISTS count_animal_available_today;
 DELIMITER $$
 CREATE FUNCTION count_animal_available_today(shelter_name VARCHAR(50)) 
