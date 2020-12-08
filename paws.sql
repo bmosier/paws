@@ -969,7 +969,7 @@ CREATE VIEW v_fostered_animals AS
         JOIN volunteer ON ((fosterhome.volunteer_ID = volunteer.volunteer_ID)))
         JOIN shelter ON ((animal.shelter_ID = shelter.shelter_ID)))
     WHERE
-        (animal.is_fostered = 1);						
+        (animal.is_fostered = 1)						
 								  
 -- FUNCTION: get_age_descriptor - Ben Mosier							  
 DROP FUNCTION IF EXISTS get_age_descriptor;
@@ -1011,19 +1011,15 @@ where animal.animal_ID = NEW.animal_ID;
 END$$
 DELIMITER ;
 
--- PROCEDURE: to_shelter - Ben Mosier
-DROP PROCEDURE IF EXISTS to_shelter;	
-DELIMITER $$
-CREATE PROCEDURE to_shelter(_animal_ID int, _shelter_ID int)
+-- PROCEDURE: animal to_shelter - Ben Mosier
+CREATE DEFINER=`mosierb`@`%` PROCEDURE `animal_to_shelter`(_animal_ID int, _shelter_ID int)
 BEGIN
--- To move an animal from a fosterhome to a shelter
--- or
--- Move an animal to a new shelter
-update animal
-set shelter_ID = _shelter_ID, is_currently_fostered = FALSE
-where animal_ID = _animal_ID;
-END$$
-DELIMITER ;
+-- PROCEDURE: animal_to_fosterhome - Ben Mosier
+CREATE DEFINER=`mosierb`@`%` PROCEDURE `animal_to_fosterhome`(_animal_ID int, _foster_ID int)
+BEGIN
+INSERT fosterhome_animal (animal_ID, foster_ID, foster_date) VALUES ( _animal_ID, _foster_ID, CURDATE());
+
+END
 -- ______________________________________________________________________________________________________							  
 -- 
 -- End of object implementations assigned to: Ben Mosier
