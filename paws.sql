@@ -780,6 +780,14 @@ FROM fosterhome JOIN fosterhome_animal using(foster_ID) JOIN animal using (anima
 WHERE is_fostered = TRUE
 AND animal_ID NOT IN
 (select adoption.animal_ID from adoption);
+				  
+-- Example:
+-- SELECT * FROM f20_paws.v_animal_info;
+
+--Expected Ouput:
+-- Outputs animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, 
+-- animal_description, Shelter_or_Foster_name, city, street, state, phone and zipcode   
+-- for all animal currently available for adoption				  
   
   -- procedure: staff_stats - Samuel James
 DROP PROCEDURE IF EXISTS staff_stats;  
@@ -801,6 +809,15 @@ BEGIN
 END$$
 DELIMITER ;
 						    
+-- Example:
+-- call f20_paws.staff_stats('Medford Animal Shelter');
+						    
+-- Expected Ouput:
+-- Firstname, LastName, phone, email_or_phone_extension, shelter_name for the appropriate employees and volunteers corresponding to the given shelter						   
+-- i.e.(Paul	Westbrook	5415550124	2	Medford Animal Shelter
+-- 	Deborah	Randolph	5411111236	birdluvr@birds.org	Medford Animal Shelter
+-- 	Beth	Rund	5411111242	goawayfromme@email.com	Medford Animal Shelter)
+						    
 DROP PROCEDURE IF EXISTS Adopt_By_Attribute;  
 DELIMITER $$
   -- procedure: Adopt_By_Attribute - Samuel James
@@ -813,10 +830,18 @@ BEGIN
 END$$
 DELIMITER ;
 
+-- Example:
+-- call f20_paws.Adopt_By_Attribute('Daschund', 'F', 'Dog');
+												     
+-- Expected Output:
+-- animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, 
+-- Shelter_or_Foster_name, city, street, state, phone and zipcode corresponding to the appropriate breed, species and gender i.e.
+--('112', 'Lazy', '2013-03-18', 'Dog', 'Daschund', 'F', '1', 'Small black and brown 15 lbs and fun', 'Jimson', 'Grants Pass', '1111 SW M St.', 'OR', '8675316', '97526')
+
 -- function: is_animal_available_today - Samuel James
-DROP FUNCTION IF EXISTS is_animal_available_today;
+DROP FUNCTION IF EXISTS count_animal_available_today;
 DELIMITER $$
-CREATE FUNCTION is_animal_available_today(shelter_name VARCHAR(50)) 
+CREATE FUNCTION count_animal_available_today(shelter_name VARCHAR(50)) 
 	RETURNS INT
   	READS SQL DATA
 BEGIN
@@ -829,6 +854,13 @@ BEGIN
 END$$
 DELIMITER ;
 
+-- Example:
+-- select f20_paws.count_animal_available_today('Medford Animal Shelter');
+								  
+-- Expected Ouput:
+-- Ouput of the amount of animals that meet all criteria for adoption and are currently available for the given shelter name
+-- i.e. (0)						
+								  
 -- trigger: intake_BEFORE_INSERT - Samuel James
 DROP TRIGGER IF EXISTS intake_BEFORE_INSERT;
 
@@ -846,7 +878,24 @@ BEGIN
     END IF;
 END$$
 DELIMITER ;
+								  
+-- Example:
+-- START TRANSACTION;
+-- SELECT * FROM intake;
+-- INSERT INTO intake (intake_ID, animal_ID, customer_ID, staff_ID, shelter_ID, intake_date, intake_type) VALUES(001, 90, 6001, 9050017, 10, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), "BABY");
+-- SELECT * FROM intake;
 
+-- -- WILL GET ERROR HERE (AS EXPECTED):
+-- INSERT INTO intake (intake_ID, animal_ID, customer_ID, staff_ID, shelter_ID, intake_date, intake_type) VALUES(002, 91, 6003, 9050017, 10, STR_TO_DATE('10-21-2020', '%m-%d-%Y'), "BABY");
+-- SELECT * FROM intake;
+-- -- DON'T FORGET TO RUN THIS AFTER THE PREVIOUS ERROR:
+-- ROLLBACK;
+-- SELECT * FROM intake;
+
+-- Expected Output:
+-- Outputs "Unable to exceed shelter maximum capacity."
+
+								  
 -- 
 -- End of object implementations assigned to: Samuel James
 -- 
