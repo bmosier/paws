@@ -459,6 +459,35 @@ VALUES (113, 'Scooby', STR_TO_DATE('04-19-13', '%m-%d-%Y'), 'Dog', 'Great Dane',
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
 VALUES (114, 'Shaggy', STR_TO_DATE('05-21-13', '%m-%d-%Y'), 'Dog', 'Puli', 'F', TRUE, '45 lbs looks like a mop, fun and cuddly', null, FALSE, TRUE, FALSE);
 
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (701, 'Bomba', STR_TO_DATE('09-13-2020', '%m-%d-%Y'), 'Cat', 'Tabby', 'M', TRUE, '4 lbs, timid, likes cuddles', 7, TRUE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (702, 'Sally the Alley Cat', STR_TO_DATE('11-02-2020', '%m-%d-%Y'), 'Cat', 'Calico', 'F', False, '2 lbs, energetic, doesn't like dogs', 7, TRUE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (703, 'Symetra', STR_TO_DATE('06-25-2019', '%m-%d-%Y'), 'Dog', 'Schnauzer' , 'F', TRUE, '15 lbs, loves fetch, very curious', 7, TRUE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (704, 'Pfizer', STR_TO_DATE('03-25-2020', '%m-%d-%Y'), 'Cat', 'Tabby' , 'M', TRUE, '6 lbs, eats a lot', 7, TRUE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (705, 'Corona', STR_TO_DATE('10-14-2019', '%m-%d-%Y'), 'Cat', 'Tabby' , 'F', FALSE, '4 lbs, quite deadly, very contagious, not a hoax', 7, TRUE, TRUE, FALSE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (801, 'Covid', STR_TO_DATE('11-27-2018', '%m-%d-%Y'), 'Dog', 'Chihuahua', 'M', TRUE, '8 lbs, violent, licks everything', 7, TRUE, FALSE, TRUE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (802, 'Leonardo', STR_TO_DATE('04-25-2006', '%m-%d-%Y'), 'Dog', 'Pitbull', 'M', TRUE, '42 lbs, white w/ black spots, cuddliest old lady, loves laying in the sun being lazy', 7, TRUE, FALSE, TRUE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (803, 'Titus', STR_TO_DATE('05-13-2020', '%m-%d-%Y'), 'Cat', 'Tabby', 'M', FALSE, '9 lbs, brown, loves to play, afraid of other animals', 7, TRUE, FALSE, TRUE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (804, 'Penelope', STR_TO_DATE('02-17-2018', '%m-%d-%Y'), 'Dog', 'Labrador', 'M', TRUE, '63 lbs, lazy, eats anything', 7, TRUE, FALSE, TRUE);
+
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
+VALUES (805, 'Freya', STR_TO_DATE('11-28-2020', '%m-%d-%Y'), 'Cat', 'Maine Coon', 'F', False, '2 lbs, very vocal, gray with brown streaks', 7, TRUE, FALSE, TRUE);
 
 -- ---------------------INSERT customer--------------------------- -- 
 INSERT INTO customer (customer_ID, customer_first_name, customer_last_name, customer_phone, customer_street, customer_city, customer_state, customer_zip_code, Last_contacted, customer_email, register_date)
