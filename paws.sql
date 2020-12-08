@@ -382,7 +382,8 @@ VALUES (900, 42, 8675318, '4568 NW N St.', 'Ashland', 'OR', 97502, 6);
 INSERT INTO fosterhome (foster_ID, volunteer_ID, foster_phone, foster_street, foster_city, foster_state, foster_zip_code, max_animals)
 VALUES (999, 43, 8675319, '7777 Seven St.', 'Ashland', 'OR', 97502, 6);
 
-
+INSERT INTO fosterhome (foster_ID, volunteer_ID, foster_phone, foster_street, foster_city, foster_state, foster_zip_code, max_animals)
+VALUES (550, 34, 8675309, '124 Circle St.', 'Medford', 'OR', 97504, 20);
 -- ---------------------INSERT animal--------------------------- -- 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
 VALUES (100, 'snek', STR_TO_DATE('06-09-2020', '%m-%d-%Y'), 'Dog', 'Pitbull', 'M', TRUE, '100 lb brown and white pitbull, calm, fun', null, TRUE, TRUE, FALSE);
@@ -463,7 +464,7 @@ INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, a
 VALUES (701, 'Bomba', STR_TO_DATE('09-13-2020', '%m-%d-%Y'), 'Cat', 'Tabby', 'M', TRUE, '4 lbs, timid, likes cuddles', 7, TRUE, TRUE, FALSE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
-VALUES (702, 'Sally the Alley Cat', STR_TO_DATE('11-02-2020', '%m-%d-%Y'), 'Cat', 'Calico', 'F', False, '2 lbs, energetic, doesn't like dogs', 7, TRUE, TRUE, FALSE);
+VALUES (702, 'Sally the Alley Cat', STR_TO_DATE('11-02-2020', '%m-%d-%Y'), 'Cat', 'Calico', 'F', False, '2 lbs, energetic' doesn't like dogs', 7, TRUE, TRUE, FALSE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
 VALUES (703, 'Symetra', STR_TO_DATE('06-25-2019', '%m-%d-%Y'), 'Dog', 'Schnauzer' , 'F', TRUE, '15 lbs, loves fetch, very curious', 7, TRUE, TRUE, FALSE);
@@ -693,7 +694,21 @@ VALUES(199, 113, 800, STR_TO_DATE('11-04-2020', '%m-%d-%Y'));
 INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
 VALUES(210, 114, 999, STR_TO_DATE('11-05-2020', '%m-%d-%Y'));
 
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(901, 701, 550, STR_TO_DATE('05-09-2019', '%m-%d-%Y'));
+				
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(902, 702, 550, STR_TO_DATE('05-09-2019', '%m-%d-%Y'));
 
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(903, 703, 550, STR_TO_DATE('05-09-2019', '%m-%d-%Y'));
+
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(904, 704, 550, STR_TO_DATE('05-09-2019', '%m-%d-%Y'));
+
+INSERT INTO fosterhome_animal (foster_animal_ID, animal_ID, foster_ID, foster_date)
+VALUES(905, 705, 550, STR_TO_DATE('05-09-2019', '%m-%d-%Y'));
+				  
 -- 
 -- Implementation of the following objects assigned to: Denis Roman
 -- 
