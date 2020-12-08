@@ -904,6 +904,29 @@ DELIMITER ;
 -- Implementation of the following objects assigned to: Ben Mosier
 --
 
+DROP VIEW IF EXISTS v_fostered_animals;								  
+CREATE VIEW v_fostered_animals AS
+    SELECT 
+        fosterhome_animal.animal_ID AS 'animal_ID',
+        animal.name AS 'name',
+        animal.animal_DOB AS 'animal_DOB',
+        animal.animal_species AS 'animal_species',
+        animal.animal_breed AS 'animal_breed',
+        animal.animal_sex AS 'animal_sex',
+        volunteer.volunteer_first_name AS 'volunteer_first_name',
+        volunteer.volunteer_last_name AS 'volunteer_last_name',
+        volunteer.volunteer_email AS 'volunteer_email',
+        fosterhome.foster_phone AS 'foster_phone'
+    FROM
+        ((((fosterhome
+        JOIN fosterhome_animal ON ((fosterhome.foster_ID = fosterhome_animal.foster_ID)))
+        JOIN animal ON ((fosterhome_animal.animal_ID = f20_paws.animal.animal_ID)))
+        JOIN volunteer ON ((fosterhome.volunteer_ID = volunteer.volunteer_ID)))
+        JOIN shelter ON ((animal.shelter_ID = shelter.shelter_ID)))
+    WHERE
+        (animal.is_fostered = 1)
+    GROUP BY animal.animal_species`							
+								  
 -- FUNCTION: get_age_descriptor - Ben Mosier							  
 DROP FUNCTION IF EXISTS get_age_descriptor;
 DELIMITER $$
