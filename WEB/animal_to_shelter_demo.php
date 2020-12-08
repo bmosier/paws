@@ -2,7 +2,7 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 <html>
 	<head>
-		<title>Fostered Animals View</title>
+		<title>Animal to Shelter (procedure)</title>
 	</head>
 
 	<body>
@@ -11,17 +11,22 @@
             		<div class="link"><a href="PAWS.html">PAWS Homepage</a></div>
       		</div>
 
-		<h2>Fostered Animals (View)</h2>
+		<h2>Fostered Animal to Shelter</h2>
 		<h3>Author: Benjamin Mosier</h3>
 		<br>
 		<h4>Description</h4>
-		<p>Displays currently This page uses the v_fostered_animals (view) to provide a listing of all animals currently fostered. </p>
+		<p>This page uses the v_fostered_animals (view) and the animal_to_fosterhome (procedure). When an animal is moved from a foster home back to a shelter,<br />
+		 the record in the fosterhome_animal bridge table is preserved as historical data, but the Boolean value on the Animal record will be set to false, removing<br />
+		 it from the fostered animals view. Changing this Boolean is all that is required to determine whether an animal is currently fostered, and the most recent<br />
+		 fosterhome_animal record will indicate which foster home is housing the animal. The animal_to_shelter procedure could also be used to change an animal’s assigned<br />
+		 shelter, even if they are not currently in a foster home. Note: An animal must be at located at a shelter in order to be adopted (not enforced here).</p>
 		<br>
 		<h4>Justification</h4>
-		<p>This page is useful to staff and volunteers who need to see which animals are in currently in foster care. Foster homes are used because<br />of limited space and staffing of shelters (especially during puppy and kitten season). Each foster home is managed by one volunteer.<br />The page provides information that can be used to quickly identify an animal as well as the contact info for that foster home.</p>
+		<p>This page can be used by shelter staff to assign an animal to a foster home. </p>
 		<br>
 		<h4>Expected Execution</h4>
-		<p>All animals that have not been adopted shall be returned</p>
+		<p>Choose any of the listed foster animals (by animal_ID) to move into the shelter, and one of the available choices in the foster_ID drop down. The shelter_ID has<br />
+		been pre-selected to be each animal’s registered shelter.</p>
 		<br>
 <?php
 	require_once '../dbconfig-paws.php';
