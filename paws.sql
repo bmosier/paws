@@ -925,7 +925,7 @@ CREATE VIEW v_fostered_animals AS
         JOIN shelter ON ((animal.shelter_ID = shelter.shelter_ID)))
     WHERE
         (animal.is_fostered = 1)
-    GROUP BY animal.animal_species`							
+    GROUP BY animal.animal_species							
 								  
 -- FUNCTION: get_age_descriptor - Ben Mosier							  
 DROP FUNCTION IF EXISTS get_age_descriptor;
