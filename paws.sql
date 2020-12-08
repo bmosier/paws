@@ -784,7 +784,7 @@ AND animal_ID NOT IN
 -- Example:
 -- SELECT * FROM f20_paws.v_animal_info;
 
---Expected Ouput:
+-- Expected Ouput:
 -- Outputs animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, 
 -- animal_description, Shelter_or_Foster_name, city, street, state, phone and zipcode   
 -- for all animal currently available for adoption				  
@@ -836,7 +836,7 @@ DELIMITER ;
 -- Expected Output:
 -- animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, 
 -- Shelter_or_Foster_name, city, street, state, phone and zipcode corresponding to the appropriate breed, species and gender i.e.
---('112', 'Lazy', '2013-03-18', 'Dog', 'Daschund', 'F', '1', 'Small black and brown 15 lbs and fun', 'Jimson', 'Grants Pass', '1111 SW M St.', 'OR', '8675316', '97526')
+-- ('112', 'Lazy', '2013-03-18', 'Dog', 'Daschund', 'F', '1', 'Small black and brown 15 lbs and fun', 'Jimson', 'Grants Pass', '1111 SW M St.', 'OR', '8675316', '97526')
 
 -- function: is_animal_available_today - Samuel James
 DROP FUNCTION IF EXISTS count_animal_available_today;
