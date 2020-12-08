@@ -463,8 +463,8 @@ VALUES (114, 'Shaggy', STR_TO_DATE('05-21-13', '%m-%d-%Y'), 'Dog', 'Puli', 'F', 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
 VALUES (701, 'Bomba', STR_TO_DATE('09-13-2020', '%m-%d-%Y'), 'Cat', 'Tabby', 'M', TRUE, '4 lbs, timid, likes cuddles', 7, TRUE, TRUE, FALSE);
 
-INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
-VALUES (702, 'Sally the Alley Cat', STR_TO_DATE('11-02-2020', '%m-%d-%Y'), 'Cat', 'Calico', 'F', False, '2 lbs, energetic doesn\'t like dogs', 7, TRUE, TRUE, FALSE);
+INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered)
+VALUES (702, 'Sally the Alley Cat', STR_TO_DATE('11-02-2020', '%m-%d-%Y'), 'Cat', 'Calico', 'F', False, '2 lbs, energetic, doesn\'t like dogs', 7, TRUE, TRUE, FALSE);
 
 INSERT INTO animal (animal_ID, name, animal_DOB, animal_species, animal_breed, animal_sex, animal_is_sterilized, animal_description, shelter_ID, wellness_check, is_fostered, is_sheltered) 
 VALUES (703, 'Symetra', STR_TO_DATE('06-25-2019', '%m-%d-%Y'), 'Dog', 'Schnauzer' , 'F', TRUE, '15 lbs, loves fetch, very curious', 7, TRUE, TRUE, FALSE);
