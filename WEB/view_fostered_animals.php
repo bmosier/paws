@@ -15,13 +15,15 @@
 		<h3>Author: Benjamin Mosier</h3>
 		<br>
 		<h4>Description</h4>
-		<p>Displays currently This page uses the v_fostered_animals (view) to provide a listing of all animals currently fostered. </p>
+		<p>Animal to Foster Home uses the v_fostered_animals (view) to provide a listing of all animals that are being fostered. </p>
 		<br>
 		<h4>Justification</h4>
-		<p>This page is useful to staff and volunteers who need to see which animals are in currently in foster care. Foster homes are used because<br />of limited space and staffing of shelters (especially during puppy and kitten season). Each foster home is managed by one volunteer.<br />The page provides information that can be used to quickly identify an animal as well as the contact info for that foster home.</p>
+		<p>This page is useful to staff and volunteers who need to see which animals are currently in foster care. Foster homes are used because<br />
+		of limited space and staffing of shelters (especially during puppy and kitten season). Each foster home is managed by one volunteer.<br />
+		The page provides information that can be used to quickly identify an animal as well as the contact info for that foster home.</p>
 		<br>
 		<h4>Expected Execution</h4>
-		<p>All animals that have not been adopted shall be returned</p>
+		<p>All animals currently in foster care will be automatically displayed.</p>
 		<br>
 <?php
 	require_once '../dbconfig-paws.php';
