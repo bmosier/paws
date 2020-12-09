@@ -998,15 +998,14 @@ END IF;
 END$$
 DELIMITER ;
 
--- TRIGGER: fosterhome_animal_AFTER_UPDATE - Ben Mosier
-DROP TRIGGER IF EXISTS fosterhome_animal_AFTER_UPDATE;	
-DELIMITER $$
-CREATE TRIGGER fosterhome_animal_AFTER_UPDATE AFTER UPDATE ON fosterhome_animal FOR EACH ROW							 
+-- TRIGGER: fosterhome_animal_AFTER_INSERT - Ben Mosier
+CREATE DEFINER=`mosierb`@`%` TRIGGER `f20_paws`.`fosterhome_animal_AFTER_INSERT` AFTER INSERT ON `fosterhome_animal` FOR EACH ROW
 BEGIN
 
 update animal
 set is_fostered = TRUE
 where animal.animal_ID = NEW.animal_ID;
+END
 
 END$$
 DELIMITER ;
